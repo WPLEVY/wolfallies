@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wolf Allies | Estate & Trust Property Specialists</title>
+  <meta name="description" content="Wolf Allies connects trustees, executors, and families with California's top trust and probate property specialists. Better agents, better outcomes — at no cost to you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --stone: #3d3d38;
+      --sage: #5c6b52;
+      --sage-light: #8a9e7e;
+      --cream: #f5f0e8;
+      --warm-white: #faf7f2;
+      --gold: #b8963e;
+      --gold-light: #d4af6a;
+      --border: rgba(92,107,82,0.18);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(250,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .nav-logo span:first-of-type { color: var(--sage); }
+
+    .nav-tagline {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      opacity: 0.7;
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--border);
+      line-height: 1;
+      align-self: center;
+    }
+
+    /* ── NO COST PITCH ── */
+    .no-cost-pitch {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: rgba(92,107,82,0.07);
+      border: 1px solid rgba(92,107,82,0.2);
+      border-left: 3px solid var(--sage);
+      border-radius: 3px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+    }
+
+    .no-cost-icon {
+      color: var(--sage);
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .no-cost-headline {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .no-cost-body {
+      font-size: 0.8rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--sage);
+      padding: 0.65rem 1.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(92,107,82,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184,150,62,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3rem 5rem 6rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 2rem;
+      height: 1px;
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    /* ── BULLET REASONS ── */
+    .reasons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .reason {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .reason-check {
+      width: 1.1rem;
+      height: 1.1rem;
+      background: rgba(92,107,82,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .reason-check svg { color: var(--sage); }
+
+    .reason strong { color: var(--ink); font-weight: 500; }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+    }
+
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--sage);
+      padding: 1rem 2.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+
+    /* ── HERO RIGHT — FORM ── */
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 4rem 5rem 2rem;
+      opacity: 0;
+      animation: fadeIn 1s 0.6s forwards;
+    }
+
+    .form-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 4px 40px rgba(26,26,24,0.07), 0 1px 4px rgba(26,26,24,0.04);
+      position: relative;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 2.5rem; right: 2.5rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sage), var(--gold-light));
+      border-radius: 0 0 2px 2px;
+    }
+
+    .form-title {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+
+    .form-subtitle {
+      font-size: 0.85rem;
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--ink);
+      background: var(--warm-white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(92,107,82,0.1);
+      background: white;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c6b52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--sage);
+      color: white;
+      border: none;
+      border-radius: 2px;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.4rem;
+    }
+
+    .btn-submit:hover { background: var(--ink); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-privacy {
+      font-size: 0.7rem;
+      color: var(--stone);
+      text-align: center;
+      margin-top: 0.75rem;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .form-no-cost {
+      background: rgba(92,107,82,0.06);
+      border: 1px solid rgba(92,107,82,0.15);
+      border-radius: 2px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.75rem;
+      color: var(--sage);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+
+    /* ── SUCCESS ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    .success-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: rgba(92,107,82,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .success-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .success-text {
+      font-size: 0.88rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 0;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 6rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 2rem;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--sage); }
+
+    .section-lead {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--stone);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .step {
+      background: var(--warm-white);
+      padding: 2.25rem;
+      transition: background 0.2s;
+    }
+
+    .step:hover { background: white; }
+
+    .step-number {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(92,107,82,0.15);
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-text {
+      font-size: 0.85rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── WHO WE HELP ── */
+    .who-section {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 0;
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .who-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      transition: box-shadow 0.2s;
+    }
+
+    .who-card:hover { box-shadow: 0 4px 20px rgba(26,26,24,0.06); }
+
+    .who-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: rgba(92,107,82,0.1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .who-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .who-text {
+      font-size: 0.83rem;
+      color: var(--stone);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* ── TRUST / WHY ── */
+    .trust-section {
+      background: var(--ink);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust-section::before {
+      content: '"';
+      position: absolute;
+      top: -3rem; left: 4rem;
+      font-family: var(--serif);
+      font-size: 18rem;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .trust-left .section-eyebrow { color: var(--sage-light); }
+    .trust-left .section-eyebrow::before { background: var(--sage-light); }
+    .trust-left .section-title { color: white; }
+    .trust-left .section-lead { color: rgba(255,255,255,0.5); max-width: 100%; }
+
+    .trust-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    .trust-pillar {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .trust-pillar:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pillar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .pillar-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .pillar-text strong { color: white; font-weight: 400; }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      padding: 7rem 6rem;
+      text-align: center;
+    }
+
+    .bottom-cta .section-eyebrow { justify-content: center; }
+    .bottom-cta .section-eyebrow::before { display: none; }
+    .bottom-cta .section-title { max-width: 650px; margin: 0 auto 0.75rem; }
+    .bottom-cta .section-lead { max-width: 460px; margin: 0 auto 2.5rem; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--stone);
+      flex-shrink: 0;
+    }
+
+    .footer-logo span { color: var(--sage); }
+
+    .footer-text {
+      font-size: 0.73rem;
+      color: var(--stone);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.7rem;
+      color: rgba(61,61,56,0.5);
+      max-width: 280px;
+      text-align: right;
+      line-height: 1.55;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-tagline { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 4rem 1.5rem 2rem; }
+      .hero-right { padding: 0 1.5rem 4rem; }
+
+      .section-inner { padding: 0 1.5rem; }
+
+      .how-section { padding: 4rem 0; }
+      .who-section { padding: 4rem 0; }
+
+      .steps { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; }
+
+      .trust-section { padding: 4rem 0; }
+      .trust-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 1.5rem; }
+
+      .bottom-cta { padding: 4rem 1.5rem; }
+
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+      .footer-disclaimer { text-align: center; max-width: 100%; }
+
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      Wolf <span>Allies</span>
+      <span class="nav-tagline">Estate &amp; Trust Property Specialists</span>
+    </a>
+    <a href="#intake" class="nav-cta">Get Connected</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-headline">
+        When property is part of<br>
+        the transition,<br>
+        <em>we know who to call.</em>
+      </h1>
+      <p class="hero-sub">
+        Wolf Allies connects trustees, executors, and families with California's top specialists in trust, probate, and estate property sales — people who handle exactly this, every day.
+      </p>
+
+      <div class="reasons">
+        <div class="reason">
+          <div class="reason-check">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span><strong>Pre-vetted specialists only</strong> — experienced in trust, probate, and estate transactions</span>
+        </div>
+        <div class="reason">
+          <div class="reason-check">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span><strong>A specialist calls you within hours</strong> — experienced in exactly this type of transaction and ready to guide you through the process</span>
+        </div>
+        <div class="reason">
+          <div class="reason-check">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span><strong>Costs you nothing — not a dollar more.</strong> Under California law, an agent cannot charge a seller more because of a broker referral. Your commission is identical whether you found your agent through us or on your own</span>
+        </div>
+        <div class="reason">
+          <div class="reason-check">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span><strong>Licensed California brokerage</strong> — every referral handled professionally and compliantly</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#intake" class="btn-primary">Find My Specialist</a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="hero-right" id="intake">
+      <div class="form-card">
+        <div id="form-state">
+          <h2 class="form-title">Let us make<br>the right connection</h2>
+          <p class="form-subtitle">Tell us the basics and we'll match you with a specialist who handles trust, probate, and estate sales every day.</p>
+
+          <form id="lead-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Best Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">Property City</label>
+              <input type="text" id="city" name="city" placeholder="Enter city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="situation">Situation Type</label>
+              <select id="situation" name="situation" required>
+                <option value="" disabled selected>Select your situation</option>
+                <option value="trust">Trust Administration (TA)</option>
+                <option value="probate">Probate</option>
+                <option value="inherited">Inherited Property</option>
+                <option value="divorce">Divorce / Separation</option>
+                <option value="estate">General Estate Sale</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Your Role</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="trustee">Trustee or Successor Trustee</option>
+                <option value="executor">Executor or Administrator</option>
+                <option value="heir">Heir or Beneficiary</option>
+                <option value="poa">Acting Under Power of Attorney</option>
+                <option value="behalf">Acting on Someone's Behalf</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">Your Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="" disabled selected>When are you looking to sell?</option>
+                <option value="asap">As soon as possible</option>
+                <option value="90days">Within 90 days</option>
+                <option value="6months">Within 6 months</option>
+                <option value="figuring">Still figuring it out</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">Connect Me With a Specialist →</button>
+          </form>
+
+          <p class="form-privacy">🔒 Your information is kept strictly private and never sold or shared with third parties.</p>
+        </div>
+
+        <div class="success-state" id="success-state">
+          <div class="success-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 11l5 5L18 5" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="success-title">You're all set.</h3>
+          <p class="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours. They handle situations like yours every day and will guide you through the process clearly and effectively.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-inner">
+      <div class="section-eyebrow">The Process</div>
+      <h2 class="section-title">Three steps.<br><em>That's it.</em></h2>
+      <p class="section-lead">Estate and trust sales have enough complexity. Finding the right specialist shouldn't add to it.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Tell us your situation</h3>
+          <p class="step-text">Share the basics — property location, situation type, and your role. Takes less than two minutes. No obligation.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3 class="step-title">We match you instantly</h3>
+          <p class="step-text">Wolf Allies identifies the right specialist for your city and situation — someone with hands-on experience in trust, probate, and estate sales specifically.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Your specialist calls you</h3>
+          <p class="step-text">Expect a call within hours. They've handled hundreds of estate and trust transactions and will guide you through every step of the process — clearly and at no cost to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="who-section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Who We Serve</div>
+      <h2 class="section-title">Every estate situation<br>is <em>different</em>.</h2>
+      <p class="section-lead">Whether the process just started or you've been navigating it for months, our specialists know exactly how to help.</p>
+
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#5c6b52" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="#5c6b52" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3 class="who-title">Trust Administration</h3>
+            <p class="who-text">Trustees managing living trust assets need to sell compliantly and on timeline. Our specialists understand fiduciary obligations — and work within them.</p>
+          </div>
+        </div>
+
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#5c6b52" stroke-width="1.4"/><path d="M9 5v4l3 2" stroke="#5c6b52" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3 class="who-title">Probate Estates</h3>
+            <p class="who-text">Court-supervised estate sales require specialists who understand the legal timeline. Our team works alongside your probate attorney to keep everything on track.</p>
+          </div>
+        </div>
+
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2l1.6 5H16l-4.1 3 1.6 5L9 12l-4.5 3 1.6-5L2 7h5.4L9 2z" stroke="#5c6b52" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3 class="who-title">Inherited Property</h3>
+            <p class="who-text">Inheriting a home you didn't expect is overwhelming. We make the path to a successful sale clear, compassionate, and handled with care.</p>
+          </div>
+        </div>
+
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 16H4a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-2" stroke="#5c6b52" stroke-width="1.4" stroke-linecap="round"/><path d="M9 11v5M6 14h6" stroke="#5c6b52" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3 class="who-title">Divorce & Separation</h3>
+            <p class="who-text">When a marital home must be sold as part of a settlement, timing and neutrality matter. Our specialists handle these transactions with discretion and professionalism.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WOLF ALLIES -->
+  <section class="trust-section">
+    <div class="trust-inner">
+      <div class="trust-left">
+        <div class="section-eyebrow">Why Wolf Allies</div>
+        <h2 class="section-title" style="margin-bottom: 0.75rem;">The right agent<br>for <em>this</em> situation.</h2>
+        <p class="section-lead">Not every agent is the right agent. Ours have deep, proven experience in trust, probate, and estate property sales — and that experience makes a real difference when the stakes are high.</p>
+      </div>
+      <div class="trust-pillars">
+        <div class="trust-pillar">
+          <div class="pillar-dot"></div>
+          <p class="pillar-text"><strong>Pre-vetted specialists only.</strong> Every agent in our network has proven experience with trust, probate, and estate transactions. They understand the legal complexity and emotional weight involved.</p>
+        </div>
+        <div class="trust-pillar">
+          <div class="pillar-dot"></div>
+          <p class="pillar-text"><strong>A specialist calls you within hours.</strong> Once you submit, the right agent for your city and situation is notified immediately. They'll reach out by phone, and with deep experience in estate and trust transactions, they'll guide you through the process effectively from the very first call.</p>
+        </div>
+        <div class="trust-pillar">
+          <div class="pillar-dot"></div>
+          <p class="pillar-text"><strong>Our service costs you nothing — not a penny more.</strong> Under California real estate law, an agent cannot charge a seller a higher commission because they're sharing a referral fee with a broker. The commission you pay is identical to what you'd pay working with any agent directly. Our involvement has zero impact on your bottom line.</p>
+        </div>
+        <div class="trust-pillar">
+          <div class="pillar-dot"></div>
+          <p class="pillar-text"><strong>Licensed and compliant.</strong> Wolf Allies operates under William B. Plevy, California Real Estate Broker, DRE #01956776. Every referral is handled professionally, transparently, and in full compliance with California real estate law.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <div class="section-eyebrow">Ready When You Are</div>
+    <h2 class="section-title">A better agent.<br><em>At no extra cost.</em></h2>
+    <p class="section-lead">Let us connect you with a specialist who handles trust, probate, and estate sales every day. Takes two minutes — and costs you nothing.</p>
+    <a href="#intake" class="btn-primary">Find My Specialist</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Wolf <span>Allies</span></div>
+    <div class="footer-text">
+      © 2026 Wolf Allies · Serving California Estate &amp; Trust Sales<br>
+      William B. Plevy, California Real Estate Broker · DRE #01956776
+    </div>
+    <div class="footer-disclaimer">
+      Wolf Allies operates under William B. Plevy, CA DRE #01956776. This site is for informational purposes only and does not constitute legal advice.
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.padding = '0.85rem 3rem';
+        nav.style.boxShadow = '0 2px 20px rgba(26,26,24,0.08)';
+      } else {
+        nav.style.padding = '1.25rem 3rem';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form submission
+    const form = document.getElementById('lead-form');
+    const formState = document.getElementById('form-state');
+    const successState = document.getElementById('success-state');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const situation = document.getElementById('situation').value;
+      const role = document.getElementById('role').value;
+      const timeline = document.getElementById('timeline').value;
+
+      if (!fname || !lname || !phone || !city || !situation || !role) {
+        alert('Please fill in all required fields before submitting.');
+        return;
+      }
+
+      submitBtn.textContent = 'Connecting...';
+      submitBtn.disabled = true;
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        name: `${fname} ${lname}`,
+        phone,
+        city,
+        situation,
+        role,
+        timeline: timeline || 'Not specified',
+        source: new URLSearchParams(window.location.search).get('src') || 'direct'
+      };
+
+      // Replace with your Formspree or Make.com webhook URL
+      const ENDPOINT = 'YOUR_WEBHOOK_URL_HERE';
+
+      try {
+        if (ENDPOINT !== 'YOUR_WEBHOOK_URL_HERE') {
+          await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+        console.log('Lead:', payload);
+        formState.style.display = 'none';
+        successState.style.display = 'block';
+      } catch (err) {
+        console.error(err);
+        formState.style.display = 'none';
+        successState.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>

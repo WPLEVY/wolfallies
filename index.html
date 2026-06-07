@@ -810,9 +810,9 @@
   <section class="hero">
     <div class="hero-left">
       <h1 class="hero-headline">
-        When property is part of<br>
-        the transition,<br>
-        <em>we know who to call.</em>
+        Inherited a property?<br>
+        Managing a trust sale?<br>
+        <em>We know who to call.</em>
       </h1>
       <div style="font-size:0.75rem;color:var(--sage);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -858,34 +858,48 @@
     <div class="hero-right" id="intake">
       <div class="form-card">
         <div id="form-state">
-          <h2 class="form-title">Let us make<br>the right connection</h2>
-          <p class="form-subtitle">Tell us the basics and we'll match you with a specialist who handles trust, probate, and estate sales every day.</p>
-
-          <form id="lead-form" novalidate>
+          <!-- STEP 1 -->
+          <div id="step-1">
+            <h2 class="form-title">Find your<br>specialist</h2>
+            <p class="form-subtitle">Two steps. A specialist calls you within hours.</p>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
+              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">1</div>
+              <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
+              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:var(--stone);flex-shrink:0;">2</div>
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" placeholder="Jane" required />
+                <input type="text" id="fname" placeholder="Jane" required />
               </div>
               <div class="form-group">
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" placeholder="Smith" required />
+                <input type="text" id="lname" placeholder="Smith" required />
               </div>
             </div>
-
             <div class="form-group">
               <label for="phone">Best Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required />
+              <input type="tel" id="phone" placeholder="(555) 000-0000" required />
             </div>
-
+            <button type="button" id="next-btn" class="btn-submit">Continue →</button>
+            <p class="form-privacy">🔒 Private and never shared.</p>
+          </div>
+          <!-- STEP 2 -->
+          <div id="step-2" style="display:none;">
+            <h2 class="form-title">Almost there —<br>your situation</h2>
+            <p class="form-subtitle">This helps us match you with the right specialist.</p>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
+              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);opacity:0.4;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">1</div>
+              <div style="height:2px;flex:1;background:var(--sage);border-radius:1px;"></div>
+              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">2</div>
+            </div>
             <div class="form-group">
               <label for="city">Property City</label>
-              <input type="text" id="city" name="city" placeholder="Enter city" required />
+              <input type="text" id="city" placeholder="Enter city" required />
             </div>
-
             <div class="form-group">
               <label for="situation">Situation Type</label>
-              <select id="situation" name="situation" required>
+              <select id="situation" required>
                 <option value="" disabled selected>Select your situation</option>
                 <option value="trust">Trust Administration (TA)</option>
                 <option value="probate">Probate</option>
@@ -895,10 +909,9 @@
                 <option value="other">Other / Not Sure</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="role">Your Role</label>
-              <select id="role" name="role" required>
+              <select id="role" required>
                 <option value="" disabled selected>Select your role</option>
                 <option value="trustee">Trustee or Successor Trustee</option>
                 <option value="executor">Executor or Administrator</option>
@@ -908,10 +921,9 @@
                 <option value="other">Other</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="timeline">Your Timeline</label>
-              <select id="timeline" name="timeline">
+              <select id="timeline">
                 <option value="" disabled selected>When are you looking to sell?</option>
                 <option value="asap">As soon as possible</option>
                 <option value="90days">Within 90 days</option>
@@ -919,14 +931,11 @@
                 <option value="figuring">Still figuring it out</option>
               </select>
             </div>
-
-            <button type="submit" class="btn-submit" id="submit-btn">Connect Me With a Specialist →</button>
-          </form>
-
-          <p class="form-privacy">🔒 Your information is kept strictly private and never sold or shared with third parties.</p>
-        </div>
-
-        <div class="success-state" id="success-state">
+            <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
+            <button type="button" id="back-btn" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
+          </div>
+        
+          <div class="success-state" id="success-state">
           <div class="success-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
               <path d="M4 11l5 5L18 5" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1134,11 +1143,15 @@
         </a>
       </div>
       <div style="margin-top:1.5rem;text-align:center;">
-        <a href="/faq" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">50 questions answered → </a>
+        <a href="/guides" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">All guides &amp; resources →</a>
         &nbsp;&nbsp;
-        <a href="/glossary" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">Estate real estate glossary →</a>
+        <a href="/faq" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">50 questions answered →</a>
         &nbsp;&nbsp;
-        <a href="/about" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">About Wolf Allies →</a>
+        <a href="/glossary" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">Glossary →</a>
+        &nbsp;&nbsp;
+        <a href="/why-wolf-allies-is-free" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">Why it's free →</a>
+        &nbsp;&nbsp;
+        <a href="/william-plevy" style="font-size:0.82rem;color:var(--sage);text-decoration:none;font-weight:500;">About William →</a>
       </div>
     </div>
   </section>
@@ -1188,14 +1201,30 @@
     });
 
     // Form submission
-    const form = document.getElementById('lead-form');
+    // Two-step form logic
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const nextBtn = document.getElementById('next-btn');
+    const backBtn = document.getElementById('back-btn');
+    const submitBtn = document.getElementById('submit-btn');
     const formState = document.getElementById('form-state');
     const successState = document.getElementById('success-state');
-    const submitBtn = document.getElementById('submit-btn');
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    nextBtn.addEventListener('click', function() {
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+    });
 
+    backBtn.addEventListener('click', function() {
+      step2.style.display = 'none';
+      step1.style.display = 'block';
+    });
+
+    submitBtn.addEventListener('click', async function() {
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
       const phone = document.getElementById('phone').value.trim();
@@ -1203,48 +1232,24 @@
       const situation = document.getElementById('situation').value;
       const role = document.getElementById('role').value;
       const timeline = document.getElementById('timeline').value;
-
-      if (!fname || !lname || !phone || !city || !situation || !role) {
-        alert('Please fill in all required fields before submitting.');
-        return;
-      }
-
+      if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
       submitBtn.textContent = 'Connecting...';
       submitBtn.disabled = true;
-
       const payload = {
         timestamp: new Date().toISOString(),
-        name: `${fname} ${lname}`,
-        phone,
-        city,
-        situation,
-        role,
+        name: fname + ' ' + lname,
+        phone, city, situation, role,
         timeline: timeline || 'Not specified',
         source: new URLSearchParams(window.location.search).get('src') || 'direct'
       };
-
-      // Submit to both Make.com and Formspree simultaneously
-      const MAKE_WEBHOOK = 'https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3';
-      const FORMSPREE = 'https://formspree.io/f/mqeoppoo';
-
       try {
         await Promise.all([
-          fetch(MAKE_WEBHOOK, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          }),
-          fetch(FORMSPREE, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
-          })
+          fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
+          fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
         ]);
-        console.log('Lead submitted:', payload);
         formState.style.display = 'none';
         successState.style.display = 'block';
-      } catch (err) {
-        console.error(err);
+      } catch(err) {
         formState.style.display = 'none';
         successState.style.display = 'block';
       }

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Probate Real Estate Works in California | Wolf Allies</title>
+  <meta name="description" content="A complete guide for executors and families navigating the sale of real property through California probate court. Written by a licensed California real estate broker and attorney." />
+  <link rel="canonical" href="https://wolfallies.com/probate-real-estate-california" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --stone: #3d3d38; --sage: #5c6b52; --sage-light: #8a9e7e;
+      --cream: #f5f0e8; --warm-white: #faf7f2; --gold-light: #d4af6a;
+      --border: rgba(92,107,82,0.18);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--warm-white); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(250,247,242,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 0.75rem; }
+    .nav-logo span { color: var(--sage); }
+    .nav-tagline { font-family: var(--sans); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.7; padding-left: 0.75rem; border-left: 1px solid var(--border); }
+    .nav-cta { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--sage); padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--ink); }
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 8rem 6rem 6rem; display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: start; }
+    .breadcrumb { font-size: 0.75rem; color: var(--stone); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--sage); text-decoration: none; }
+    .article-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .article-eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--sage); }
+    h1 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.12; color: var(--ink); margin-bottom: 1.25rem; }
+    h1 em { font-style: italic; color: var(--sage); }
+    .article-meta { font-size: 0.78rem; color: var(--stone); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .article-intro { font-size: 1.05rem; font-weight: 300; color: var(--stone); line-height: 1.8; margin-bottom: 2.5rem; padding: 1.5rem; background: rgba(92,107,82,0.05); border-left: 3px solid var(--sage); border-radius: 2px; }
+    .toc { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 2.5rem; }
+    .toc-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.4rem; }
+    .toc a { font-size: 0.85rem; color: var(--sage); text-decoration: none; line-height: 1.5; }
+    .toc a:hover { text-decoration: underline; }
+    h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; color: var(--ink); margin: 2.5rem 0 1rem; line-height: 1.2; }
+    h2 em { font-style: italic; color: var(--sage); }
+    h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--ink); margin: 1.75rem 0 0.6rem; }
+    p { font-size: 0.95rem; color: var(--stone); font-weight: 300; line-height: 1.8; margin-bottom: 1.1rem; }
+    p strong { color: var(--ink); font-weight: 500; }
+    .step-list { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .step-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.1rem 1.25rem; background: white; border: 1px solid var(--border); border-radius: 3px; }
+    .step-num { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: rgba(92,107,82,0.3); line-height: 1; flex-shrink: 0; width: 1.5rem; }
+    .step-content h4 { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+    .step-content p { font-size: 0.83rem; margin-bottom: 0; }
+    .callout { background: rgba(92,107,82,0.06); border: 1px solid rgba(92,107,82,0.2); border-left: 3px solid var(--sage); border-radius: 2px; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .callout-title { font-family: var(--sans); font-size: 0.82rem; font-weight: 500; color: var(--sage); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .callout p { font-size: 0.88rem; margin-bottom: 0; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin: 1.25rem 0 1.5rem; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--ink); padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background 0.15s; }
+    .faq-q:hover { background: var(--warm-white); }
+    .faq-a { font-size: 0.85rem; color: var(--stone); font-weight: 300; line-height: 1.7; padding: 0 1.25rem 1rem; background: white; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-arrow { color: var(--sage); font-size: 0.8rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .author-box { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-top: 3rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .author-avatar { width: 3rem; height: 3rem; background: rgba(92,107,82,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--serif); font-size: 1.2rem; color: var(--sage); font-weight: 500; }
+    .author-name { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+    .author-bio { font-size: 0.78rem; color: var(--stone); font-weight: 300; line-height: 1.6; }
+    .sidebar { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .form-card { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 2rem; box-shadow: 0 4px 40px rgba(26,26,24,0.07); position: relative; }
+    .form-card::before { content: ''; position: absolute; top: 0; left: 2rem; right: 2rem; height: 3px; background: linear-gradient(90deg, var(--sage), var(--gold-light)); border-radius: 0 0 2px 2px; }
+    .form-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.2; }
+    .form-subtitle { font-size: 0.8rem; color: var(--stone); margin-bottom: 1.25rem; font-weight: 300; line-height: 1.5; }
+    .form-group { margin-bottom: 0.75rem; }
+    .form-group label { display: block; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.3rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; font-family: var(--sans); font-size: 0.85rem; color: var(--ink); background: var(--warm-white); outline: none; appearance: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(92,107,82,0.1); background: white; }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c6b52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.85rem center; padding-right: 2.25rem; cursor: pointer; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .btn-submit { width: 100%; padding: 0.9rem; background: var(--sage); color: white; border: none; border-radius: 2px; font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; margin-top: 0.3rem; }
+    .btn-submit:hover { background: var(--ink); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-privacy { font-size: 0.67rem; color: var(--stone); text-align: center; margin-top: 0.5rem; font-weight: 300; }
+    .success-state { display: none; text-align: center; padding: 1rem 0; }
+    .success-icon { width: 2.75rem; height: 2.75rem; background: rgba(92,107,82,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; }
+    .success-title { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); margin-bottom: 0.4rem; }
+    .success-text { font-size: 0.82rem; color: var(--stone); font-weight: 300; line-height: 1.7; }
+    .sidebar-links { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+    .sidebar-links-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 1rem; }
+    .sidebar-link { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--sage); text-decoration: none; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+    .sidebar-link:last-child { border-bottom: none; }
+    .sidebar-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 6rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 4rem; }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; color: var(--stone); }
+    .footer-logo span { color: var(--sage); }
+    .footer-text { font-size: 0.7rem; color: var(--stone); text-align: center; line-height: 1.6; }
+    .footer-disclaimer { font-size: 0.68rem; color: rgba(61,61,56,0.5); max-width: 260px; text-align: right; line-height: 1.5; }
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-tagline { display: none; }
+      .page-wrap { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 3rem; }
+      .sidebar { position: static; }
+      footer { padding: 1.75rem 1.5rem; flex-direction: column; text-align: center; }
+      .footer-disclaimer { text-align: center; max-width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Wolf <span>Allies</span><span class="nav-tagline">Estate &amp; Trust Property Specialists</span></a>
+  <a href="#connect" class="nav-cta">Get Connected</a>
+</nav>
+
+<div class="page-wrap">
+  <article>
+    <div class="breadcrumb"><a href="/">Wolf Allies</a> › Guides</div>
+    <div class="article-eyebrow">Complete Guide · California Probate Law</div>
+    <h1>How Probate Real Estate<br>Works in <em>California</em></h1>
+    <div class="article-meta">
+      <span>By William B. Plevy, CA Real Estate Broker · DRE #01956776</span>
+      <span>Updated June 2026</span>
+      <span>12 min read</span>
+    </div>
+
+    <p class="article-intro">When someone passes away owning real property in California without a living trust, that property almost always must pass through probate court before it can be sold or transferred. For executors and families unfamiliar with the process, probate can feel overwhelming. This guide explains exactly how probate real estate sales work in California — the timeline, the requirements, and what you can do to make the process as smooth as possible.</p>
+
+    <div class="toc">
+      <div class="toc-title">In This Guide</div>
+      <ol>
+        <li><a href="#what-is-probate">What is probate and when is it required?</a></li>
+        <li><a href="#timeline">The probate timeline in California</a></li>
+        <li><a href="#sale-process">How a probate property sale works step by step</a></li>
+        <li><a href="#iaea">The Independent Administration of Estates Act</a></li>
+        <li><a href="#pricing">How probate properties are priced</a></li>
+        <li><a href="#overbid">The overbid process explained</a></li>
+        <li><a href="#right-agent">Choosing the right probate real estate agent</a></li>
+        <li><a href="#faq">Frequently asked questions</a></li>
+      </ol>
+    </div>
+
+    <h2 id="what-is-probate">What is Probate and <em>When is it Required?</em></h2>
+    <p>Probate is the legal process through which a deceased person's estate is administered under court supervision. In California, probate is generally required when a person dies owning assets in their individual name — including real property — that exceed $184,500 in total value (as of 2024, adjusted periodically for inflation).</p>
+    <p>Probate is typically <strong>not required</strong> when property is held in a living trust, in joint tenancy with right of survivorship, or as community property with right of survivorship. In those cases, the property transfers outside of probate through other mechanisms.</p>
+    <p>Probate <strong>is typically required</strong> when property was held solely in the deceased's name with no designated co-owner or beneficiary, or when the estate has a will that needs to be validated by the court.</p>
+
+    <h2 id="timeline">The Probate Timeline <em>in California</em></h2>
+    <p>California probate is one of the longest in the country. A straightforward, uncontested probate typically takes <strong>9 to 18 months</strong> from filing to close. Complex estates, contested wills, or court backlogs can extend this significantly.</p>
+
+    <ul class="step-list">
+      <li class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Filing the petition (Month 1)</h4>
+          <p>The executor or administrator files a petition with the Superior Court in the county where the deceased resided. The court sets a hearing date — typically 4-8 weeks out.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Court appointment and letters testamentary (Month 2-3)</h4>
+          <p>At the initial hearing, the court appoints the executor and issues Letters Testamentary — the document that gives the executor legal authority to act on behalf of the estate, including the authority to sell real property.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Inventory and appraisal (Month 2-4)</h4>
+          <p>A court-appointed probate referee appraises all estate assets, including real property. This appraisal establishes the minimum acceptable sale price for court confirmation purposes.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Listing and accepting an offer (Month 3-6)</h4>
+          <p>The executor lists the property with a real estate agent and accepts an offer. The accepted offer price must be at least 90% of the probate referee's appraised value.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Court confirmation hearing (Month 5-8)</h4>
+          <p>The sale must be confirmed by the court at a hearing. At this hearing, other buyers can submit overbids — potentially increasing the final price. The court confirms the highest bid and the sale proceeds.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <h4>Close of escrow (Month 6-9)</h4>
+          <p>After court confirmation, escrow closes and proceeds are distributed to the estate. Final distribution to heirs happens after all debts, taxes, and estate expenses are paid — typically several months later.</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="sale-process">How a Probate Property Sale <em>Works Step by Step</em></h2>
+    <p>The mechanics of selling real property through probate differ from a standard sale in several important ways. Understanding these differences helps executors set realistic expectations and avoid costly mistakes.</p>
+
+    <h3>Setting the List Price</h3>
+    <p>The probate referee's appraisal establishes the baseline. The court requires that any accepted offer be at least 90% of this appraised value. A skilled probate agent will help you set a list price that attracts genuine buyers while positioning the property correctly for the court confirmation process.</p>
+
+    <h3>Accepting an Offer</h3>
+    <p>Once a buyer's offer is accepted, the executor signs a standard California residential purchase agreement. However, unlike a standard sale, this accepted offer is not binding until confirmed by the court. The buyer must be prepared to wait for the court confirmation hearing — typically 4-8 weeks after acceptance.</p>
+
+    <h3>The Notice of Proposed Action</h3>
+    <p>Before the court hearing, the executor must provide notice to all heirs and beneficiaries of the proposed sale. This gives interested parties the opportunity to object or attend the hearing. If no objections are filed, the process moves forward smoothly.</p>
+
+    <div class="callout">
+      <div class="callout-title">Important for Buyers</div>
+      <p>Buyers purchasing a probate property must understand they may be overbid at the court hearing. Buyers who are serious about the property should attend the hearing prepared to participate in the overbid process. A good probate agent will brief their buyer clients thoroughly on what to expect.</p>
+    </div>
+
+    <h2 id="iaea">The Independent Administration <em>of Estates Act (IAEA)</em></h2>
+    <p>California's Independent Administration of Estates Act allows many probate estates to operate with reduced court supervision. Under full IAEA authority, an executor can sell real property without court confirmation — following a process more similar to a standard sale.</p>
+    <p>To sell under IAEA, the executor must provide Notice of Proposed Action to heirs at least 15 days before the sale closes. If no heir objects, the sale proceeds without a court hearing. If an heir objects, court confirmation is required.</p>
+    <p>IAEA authority is granted by the court at the initial hearing if the will permits it or all heirs consent. Ask your probate attorney whether IAEA applies to your estate — it can save months of time and significant legal fees.</p>
+
+    <h2 id="pricing">How Probate Properties <em>Are Priced</em></h2>
+    <p>Pricing a probate property requires balancing several factors that don't exist in a standard sale. The price must be high enough to fulfill the executor's fiduciary duty to maximize value for heirs, while being realistic enough to attract genuine buyers who will commit to a lengthy escrow.</p>
+    <p>The probate referee's appraisal is a starting point — not necessarily the right list price. Depending on market conditions, the property may be worth more or less than the appraised value. A probate agent with current market knowledge will help you position the property correctly.</p>
+    <p>One strategic consideration: pricing the property to generate multiple competing offers can drive the final sale price above the list price — which benefits the estate and satisfies the fiduciary obligation to maximize value.</p>
+
+    <h2 id="overbid">The Overbid Process <em>Explained</em></h2>
+    <p>The overbid process is one of the most misunderstood aspects of California probate sales. At the court confirmation hearing, any member of the public can appear and submit an overbid on the property.</p>
+    <p>The minimum overbid is calculated as follows: the accepted offer price plus the greater of $500 or 10% of the first $10,000 of the accepted price plus 5% of the balance. In practice, for a $1 million property with an accepted offer of $950,000, the minimum overbid would be approximately $998,000.</p>
+    <p>If an overbid is submitted, the court conducts an open auction between the original buyer and any overbidders, in increments determined by the judge. The highest bidder wins, and the court confirms that sale.</p>
+    <p>The overbid process can be advantageous for estates — it can result in a final sale price significantly above the accepted offer. A skilled probate agent will price the property and structure the initial offer to maximize this outcome.</p>
+
+    <h2 id="right-agent">Choosing the Right <em>Probate Real Estate Agent</em></h2>
+    <p>Not every real estate agent understands probate. The legal requirements, court procedures, and timing constraints of a probate sale are fundamentally different from a standard residential transaction. Working with an agent who lacks this experience can lead to costly mistakes — mispriced properties, missed court deadlines, or buyers who back out when they learn about the overbid process.</p>
+    <p>The right probate agent has handled multiple probate transactions, understands the court confirmation process, knows how to work effectively with probate attorneys, and can manage buyer expectations through a longer-than-normal escrow period.</p>
+    <p>Wolf Allies connects executors and families with agents who have this specific expertise across Los Angeles, San Diego, and Orange County. Our service is completely free — under California law, our involvement never affects what you pay your agent.</p>
+
+    <h2 id="faq">Frequently Asked <em>Questions</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Can I sell a probate property before probate is complete? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">You can list and accept an offer before probate is fully complete, but you cannot close escrow until the court confirms the sale and the executor has proper authority. Getting the property on the market early in the process is often a smart strategy — it means you have a buyer ready to close as soon as court confirmation is obtained.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a probate attorney to sell real property through probate? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">While California law does not technically require an attorney for probate, it is strongly advisable. Probate involves complex legal filings, court appearances, and fiduciary obligations. An error can result in personal liability for the executor. Most executors work with both a probate attorney and a specialized real estate agent.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if there is no will? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">If the deceased died without a will (intestate), the estate still goes through probate. California's intestate succession laws determine who inherits. The court appoints an administrator — typically the closest surviving relative — who has the same authority as an executor to manage and sell estate property.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can the executor buy the probate property themselves? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">An executor can purchase estate property, but this creates a conflict of interest that must be carefully managed. Court approval is required, and the purchase must be at fair market value. Full disclosure to all heirs and beneficiaries is essential. This situation should always be handled with guidance from a probate attorney.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much does it cost to sell a property through probate? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Costs include attorney fees (typically 4% of the estate's gross value on a sliding scale set by statute), executor compensation (same scale), court filing fees, and real estate commissions. These costs are paid from estate proceeds, not out of pocket by the executor. The statutory attorney and executor fees are based on gross value — not net — so they apply to the full property value regardless of any mortgage.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does using Wolf Allies cost anything? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">No. Wolf Allies is completely free to executors and families. Under California law, an agent cannot charge more because of a broker referral. Your commission is identical whether you found your agent through us or on your own.</div>
+      </div>
+    </div>
+
+    <div class="author-box">
+      <div class="author-avatar">WP</div>
+      <div>
+        <div class="author-name">William B. Plevy</div>
+        <div class="author-bio">California Real Estate Broker, DRE #01956776. William has guided executors and families through probate property sales across Southern California. Wolf Allies connects families with the right specialist for their city and situation — at no cost to them.</div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="form-card" id="connect">
+      <div id="form-state">
+        <h2 class="form-title">Connect with a probate specialist</h2>
+        <p class="form-subtitle">Tell us the basics and we'll match you with the right agent — at no cost.</p>
+        <form id="lead-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Jane" required /></div>
+            <div class="form-group"><label>Last Name</label><input type="text" id="lname" placeholder="Smith" required /></div>
+          </div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
+          <div class="form-group"><label>Property City</label><input type="text" id="city" placeholder="Enter city" required /></div>
+          <div class="form-group"><label>Situation Type</label>
+            <select id="situation" required>
+              <option value="" disabled selected>Select your situation</option>
+              <option value="probate">Probate</option>
+              <option value="trust">Trust Administration (TA)</option>
+              <option value="inherited">Inherited Property</option>
+              <option value="divorce">Divorce / Separation</option>
+              <option value="estate">General Estate Sale</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Your Role</label>
+            <select id="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="executor">Executor or Administrator</option>
+              <option value="trustee">Trustee or Successor Trustee</option>
+              <option value="heir">Heir or Beneficiary</option>
+              <option value="poa">Acting Under Power of Attorney</option>
+              <option value="behalf">Acting on Someone's Behalf</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Your Timeline</label>
+            <select id="timeline">
+              <option value="" disabled selected>When are you looking to sell?</option>
+              <option value="asap">As soon as possible</option>
+              <option value="90days">Within 90 days</option>
+              <option value="6months">Within 6 months</option>
+              <option value="figuring">Still figuring it out</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit" id="submit-btn">Connect Me With a Specialist →</button>
+        </form>
+        <p class="form-privacy">🔒 Private and never shared with third parties.</p>
+      </div>
+      <div class="success-state" id="success-state">
+        <div class="success-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="success-title">You're all set.</h3>
+        <p class="success-text">A probate specialist will call you within a few hours. They handle situations like yours every day.</p>
+      </div>
+    </div>
+    <div class="sidebar-links">
+      <div class="sidebar-links-title">Related Guides</div>
+      <a href="/inherited-home-guide" class="sidebar-link">→ What to Do With an Inherited Home</a>
+      <a href="/trust-sale-california" class="sidebar-link">→ Selling a Home Through a Living Trust</a>
+      <a href="/pasadena" class="sidebar-link">→ Pasadena Probate Specialists</a>
+      <a href="/beverly-hills" class="sidebar-link">→ Beverly Hills Probate Specialists</a>
+      <a href="/la-jolla" class="sidebar-link">→ La Jolla Probate Specialists</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-logo">Wolf <span>Allies</span></div>
+  <div class="footer-text">© 2026 Wolf Allies · Serving California Estate &amp; Trust Sales<br>William B. Plevy, California Real Estate Broker · DRE #01956776</div>
+  <div class="footer-disclaimer">This guide is for informational purposes only and does not constitute legal advice. Consult a qualified probate attorney for your specific situation.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => { q.addEventListener('click', () => q.parentElement.classList.toggle('open')); });
+  window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(26,26,24,0.08)' : 'none'; });
+  const form = document.getElementById('lead-form');
+  const formState = document.getElementById('form-state');
+  const successState = document.getElementById('success-state');
+  const submitBtn = document.getElementById('submit-btn');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const situation = document.getElementById('situation').value;
+    const role = document.getElementById('role').value;
+    const timeline = document.getElementById('timeline').value;
+    if (!fname || !lname || !phone || !city || !situation || !role) { alert('Please fill in all required fields.'); return; }
+    submitBtn.textContent = 'Connecting...'; submitBtn.disabled = true;
+    const payload = { timestamp: new Date().toISOString(), name: fname + ' ' + lname, phone, city, situation, role, timeline: timeline || 'Not specified', source: 'probate-real-estate-california' };
+    try {
+      await Promise.all([
+        fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
+        fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
+      ]);
+      formState.style.display = 'none'; successState.style.display = 'block';
+    } catch(err) { formState.style.display = 'none'; successState.style.display = 'block'; }
+  });
+</script>
+</body>
+</html>

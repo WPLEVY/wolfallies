@@ -819,7 +819,7 @@
         Founded by a California Attorney &amp; Real Estate Broker · DRE #01956776
       </div>
       <p class="hero-sub">
-        Wolf Allies connects trustees, executors, and families with California's top specialists in trust, probate, and estate property sales — people who handle exactly this, every day.
+        Most real estate agents handle everything. Ours handle one thing: trust, probate, and estate property sales. Wolf Allies connects you with the right specialist for your city — and it costs you nothing to let us make that introduction.
       </p>
 
       <div class="reasons">
@@ -827,25 +827,25 @@
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Pre-vetted specialists only</strong> — experienced in trust, probate, and estate transactions</span>
+          <span><strong>Specialists, not generalists</strong> — deep proven experience in trust, probate, and estate transactions specifically</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>A specialist calls you within hours</strong> — experienced in exactly this type of transaction and ready to guide you through the process</span>
+          <span><strong>A specialist calls you within hours</strong> — experienced, ready to guide you through the entire process</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Costs you nothing — not a dollar more.</strong> Under California law, an agent cannot charge a seller more because of a broker referral. Your commission is identical whether you found your agent through us or on your own</span>
+          <span><strong>Completely free to you.</strong> Your commission is identical to what you'd pay any agent directly — California law guarantees it</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Licensed California brokerage</strong> — every referral handled professionally and compliantly</span>
+          <span><strong>Founded by a California attorney and broker</strong> — William B. Plevy, DRE #01956776</span>
         </div>
       </div>
 
@@ -882,12 +882,23 @@
               <input type="tel" id="phone" placeholder="(555) 000-0000" required />
             </div>
             <button type="button" id="next-btn" class="btn-submit">Continue →</button>
-            <p class="form-privacy">🔒 Private and never shared.</p>
+            <p class="form-privacy">🔒 Private and never shared. Wolf Allies is a real estate referral platform. Submitting this form does not create an attorney-client relationship.</p>
           </div>
           <!-- STEP 2 -->
           <div id="step-2" style="display:none;">
             <h2 class="form-title">Almost there —<br>your situation</h2>
             <p class="form-subtitle">This helps us match you with the right specialist.</p>
+            <div class="form-group">
+              <label for="need-type">What best describes your situation?</label>
+              <select id="need-type">
+                <option value="" disabled selected>Select</option>
+                <option value="sell-property">I need to sell inherited, trust, or probate property</option>
+                <option value="trustee">I'm a trustee managing a trust</option>
+                <option value="executor">I'm an executor of an estate</option>
+                <option value="legal-help">I need legal help with trust or probate</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
             <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
               <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);opacity:0.4;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">1</div>
               <div style="height:2px;flex:1;background:var(--sage);border-radius:1px;"></div>
@@ -1172,7 +1183,7 @@
       William B. Plevy, California Real Estate Broker · DRE #01956776
     </div>
     <div class="footer-disclaimer">
-      Wolf Allies operates under William B. Plevy, CA DRE #01956776. This site is for informational purposes only and does not constitute legal advice.
+      Wolf Allies is a California real estate referral platform operated by William B. Plevy, DRE #01956776. Not a law firm. This site does not provide legal advice. No attorney-client relationship is created by use of this site.
     </div>
   </footer>
 
@@ -1235,10 +1246,11 @@
       if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
       submitBtn.textContent = 'Connecting...';
       submitBtn.disabled = true;
-      const payload = {
+      const needType = document.getElementById('need-type') ? document.getElementById('need-type').value : '';
+    const payload = {
         timestamp: new Date().toISOString(),
         name: fname + ' ' + lname,
-        phone, city, situation, role,
+        phone, city, situation, role, need_type: needType,
         timeline: timeline || 'Not specified',
         source: new URLSearchParams(window.location.search).get('src') || 'direct'
       };

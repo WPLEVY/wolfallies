@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1072,21 +1073,24 @@
         source: new URLSearchParams(window.location.search).get('src') || 'direct'
       };
 
-      // Replace with your Formspree or Make.com webhook URL
-      const ENDPOINT = 'https://formspree.io/f/mqeoppoo';
+      // Submit to both Make.com and Formspree simultaneously
+      const MAKE_WEBHOOK = 'https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3';
+      const FORMSPREE = 'https://formspree.io/f/mqeoppoo';
 
       try {
-        if (ENDPOINT !== 'YOUR_WEBHOOK_URL_HERE') {
-          await fetch(ENDPOINT, {
+        await Promise.all([
+          fetch(MAKE_WEBHOOK, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
-          });
-        }
-        console.log('Lead:', payload);
+          }),
+          fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          })
+        ]);
+        console.log('Lead submitted:', payload);
         formState.style.display = 'none';
         successState.style.display = 'block';
       } catch (err) {

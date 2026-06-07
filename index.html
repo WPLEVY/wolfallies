@@ -816,7 +816,7 @@
       </h1>
       <div style="font-size:0.75rem;color:var(--sage);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Founded by a California Attorney &amp; Real Estate Broker · DRE #01956776
+        Founded by William B. Plevy, California Real Estate Broker · DRE #01956776
       </div>
       <p class="hero-sub">
         Most real estate agents handle everything. Ours handle one thing: trust, probate, and estate property sales. Wolf Allies connects you with the right specialist for your city — and it costs you nothing to let us make that introduction.
@@ -849,8 +849,8 @@
         </div>
       </div>
 
-      <div class="hero-cta-group">
-        <a href="#intake" class="btn-primary">Find My Specialist</a>
+      <div class="hero-cta-group" id="hero-cta-group">
+        <a href="#intake" class="btn-primary" onclick="focusForm(event)">Find My Specialist</a>
       </div>
     </div>
 
@@ -1212,7 +1212,20 @@
     });
 
     // Form submission
-    // Two-step form logic
+  
+  function focusForm(e) {
+    const formVisible = document.getElementById('fname');
+    if (formVisible) {
+      const rect = formVisible.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        e.preventDefault();
+        formVisible.focus();
+        return;
+      }
+    }
+  }
+
+  // Two-step form logic
     const step1 = document.getElementById('step-1');
     const step2 = document.getElementById('step-2');
     const nextBtn = document.getElementById('next-btn');

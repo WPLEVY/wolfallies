@@ -25,7 +25,29 @@
       {"@type": "Question","name": "Does using Wolf Allies cost anything?","acceptedAnswer": {"@type": "Answer","text": "No. Wolf Allies is completely free. Under California law, an agent cannot charge a seller more because of a broker referral arrangement. Your commission is identical whether you found your agent through us or on your own."}}
     ]
   }
-  </script>
+  
+  function submitFAQForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const city = document.getElementById('city') ? document.getElementById('city').value.trim() : '';
+    const needType = document.getElementById('need-type') ? document.getElementById('need-type').value : '';
+    if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
+    const btn = document.getElementById('faq-submit-btn');
+    if (btn) { btn.textContent = 'Connecting...'; btn.disabled = true; }
+    const payload = { timestamp: new Date().toISOString(), name: fname+' '+lname, phone, city, need_type: needType, source: 'faq-sidebar' };
+    Promise.all([
+      fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}),
+      fetch('https://formspree.io/f/mqeoppoo',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+    ]).catch(()=>{}).finally(()=>{
+      const fs = document.getElementById('form-state');
+      const ss = document.getElementById('success-state');
+      if(fs) fs.style.display='none';
+      if(ss) ss.style.display='block';
+    });
+  }
+
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -306,7 +328,7 @@
 
     <div class="faq-cta">
       <div class="faq-cta-title">Ready to connect with a specialist?</div>
-      <p>Wolf Allies matches trustees, executors, and families with agents who have deep experience in trust, probate, and estate sales across Southern California — at no cost to you.</p>
+      <p>Wolf Allies matches trustees, executors, and families with agents who have deep experience in trust, probate, and estate sales across California — at no cost to you.</p>
       <a href="#connect">Find My Specialist →</a>
     </div>
 
@@ -432,11 +454,11 @@
         </div>
         <div class="faq-item">
           <div class="faq-q">What areas does Wolf Allies serve? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a">Wolf Allies has specialists covering Los Angeles County, San Diego County, and Orange County — including specific coverage in Beverly Hills, Pasadena, Santa Monica, Malibu, Manhattan Beach, Palos Verdes, La Jolla, Rancho Santa Fe, and dozens of other Southern California communities. If your city is not listed, submit your information and we will do our best to connect you.</div>
+          <div class="faq-a">Wolf Allies has specialists covering California — Southern California and Northern California. Submit your information with your city and we will connect you with the right specialist for your market.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Who is behind Wolf Allies? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a">Wolf Allies operates under William B. Plevy, California Real Estate Broker, DRE #01956776. William has worked with trustees, executors, and families on estate and trust property sales across Southern California and understands both the legal and practical dimensions of these transactions.</div>
+          <div class="faq-a">Wolf Allies operates under William B. Plevy, California Real Estate Broker, DRE #01956776. William has worked with trustees, executors, and families on estate and trust property sales across California. He holds a California real estate broker license (DRE #01956776) and is a member of the California State Bar. Wolf Allies is a real estate referral platform, not a law firm.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">How quickly will I hear from a specialist after submitting my information? <span class="faq-arrow">▾</span></div>
@@ -448,8 +470,8 @@
     <div class="author-box">
       <img src="/william-plevy-photo-sm.jpg" alt="William B. Plevy" style="width:2.5rem;height:2.5rem;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;" />
       <div>
-        <div class="author-name">William B. Plevy</div>
-        <div class="author-bio">California Real Estate Broker, DRE #01956776. William has guided trustees, executors, and families through estate and trust property sales across Southern California. Wolf Allies connects families with the right specialist for their city and situation — at no cost to them.</div>
+        <div class="author-name">William B. Plevy, California Real Estate Broker · DRE #01956776</div>
+        <div class="author-bio">William holds a California real estate broker license and is a member of the California State Bar. He founded Wolf Allies to connect families with specialists in trust, probate, and estate property sales across California. Wolf Allies is a real estate referral platform — not a law firm — and never affects what you pay your agent.</div>
       </div>
     </div>
   </div>
@@ -458,48 +480,26 @@
     <div class="form-card" id="connect">
       <div id="form-state">
         <h2 class="form-title">Connect with a specialist</h2>
-        <p class="form-subtitle">Tell us the basics and we'll match you with the right agent — at no cost.</p>
-        <form id="lead-form" novalidate>
-          <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Jane" required /></div>
-            <div class="form-group"><label>Last Name</label><input type="text" id="lname" placeholder="Smith" required /></div>
-          </div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
-          <div class="form-group"><label>Property City</label><input type="text" id="city" placeholder="Enter city" required /></div>
-          <div class="form-group"><label>Situation Type</label>
-            <select id="situation" required>
-              <option value="" disabled selected>Select your situation</option>
-              <option value="trust">Trust Administration (TA)</option>
-              <option value="probate">Probate</option>
-              <option value="inherited">Inherited Property</option>
-              <option value="divorce">Divorce / Separation</option>
-              <option value="estate">General Estate Sale</option>
-              <option value="other">Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Your Role</label>
-            <select id="role" required>
-              <option value="" disabled selected>Select your role</option>
-              <option value="trustee">Trustee or Successor Trustee</option>
-              <option value="executor">Executor or Administrator</option>
-              <option value="heir">Heir or Beneficiary</option>
-              <option value="poa">Acting Under Power of Attorney</option>
-              <option value="behalf">Acting on Someone's Behalf</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Your Timeline</label>
-            <select id="timeline">
-              <option value="" disabled selected>When are you looking to sell?</option>
-              <option value="asap">As soon as possible</option>
-              <option value="90days">Within 90 days</option>
-              <option value="6months">Within 6 months</option>
-              <option value="figuring">Still figuring it out</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-submit" id="submit-btn">Connect Me With a Specialist →</button>
-        </form>
-        <p class="form-privacy">🔒 Private and never shared with third parties.</p>
+        <p class="form-subtitle">Free — never affects what you pay your agent.</p>
+        <div style="margin-bottom:0.7rem;">
+          <label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:0.3rem;">What best describes your situation?</label>
+          <select id="need-type" style="width:100%;padding:0.6rem 0.8rem;border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:0.83rem;color:var(--ink);background:var(--warm-white);outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c6b52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0.8rem center;padding-right:2rem;">
+            <option value="" disabled selected>Select</option>
+            <option value="sell-property">I need to sell inherited, trust, or probate property</option>
+            <option value="trustee">I'm a trustee managing a trust</option>
+            <option value="executor">I'm an executor of an estate</option>
+            <option value="legal-help">I need legal help with trust or probate</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.7rem;">
+          <div><label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:0.3rem;">First</label><input type="text" id="fname" placeholder="Jane" style="width:100%;padding:0.6rem 0.8rem;border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:0.83rem;color:var(--ink);background:var(--warm-white);outline:none;" /></div>
+          <div><label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:0.3rem;">Last</label><input type="text" id="lname" placeholder="Smith" style="width:100%;padding:0.6rem 0.8rem;border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:0.83rem;color:var(--ink);background:var(--warm-white);outline:none;" /></div>
+        </div>
+        <div style="margin-bottom:0.7rem;"><label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:0.3rem;">Phone</label><input type="tel" id="phone" placeholder="(555) 000-0000" style="width:100%;padding:0.6rem 0.8rem;border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:0.83rem;color:var(--ink);background:var(--warm-white);outline:none;" /></div>
+        <div style="margin-bottom:0.7rem;"><label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:0.3rem;">Property City</label><input type="text" id="city" placeholder="Enter city" style="width:100%;padding:0.6rem 0.8rem;border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:0.83rem;color:var(--ink);background:var(--warm-white);outline:none;" /></div>
+        <button onclick="submitFAQForm()" style="width:100%;padding:0.85rem;background:var(--sage);color:white;border:none;border-radius:2px;font-family:var(--sans);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:0.3rem;" id="faq-submit-btn">Connect Me →</button>
+        <p style="font-size:0.65rem;color:var(--stone);text-align:center;margin-top:0.5rem;font-weight:300;">🔒 Not a law firm. No attorney-client relationship created.</p>
       </div>
       <div class="success-state" id="success-state">
         <div class="success-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></div>

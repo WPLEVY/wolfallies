@@ -1073,13 +1073,16 @@
       };
 
       // Replace with your Formspree or Make.com webhook URL
-      const ENDPOINT = 'YOUR_WEBHOOK_URL_HERE';
+      const ENDPOINT = 'https://formspree.io/f/mqeoppoo';
 
       try {
         if (ENDPOINT !== 'YOUR_WEBHOOK_URL_HERE') {
           await fetch(ENDPOINT, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
             body: JSON.stringify(payload)
           });
         }

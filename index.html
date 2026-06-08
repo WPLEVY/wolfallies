@@ -198,11 +198,12 @@
     }
 
     .hero-sub {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 300;
       color: var(--stone);
-      line-height: 1.75;
+      line-height: 2;
       max-width: 460px;
+      letter-spacing: 0.01em;
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.5s forwards;
@@ -212,7 +213,7 @@
     .reasons {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 1rem;
       margin-bottom: 2.5rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.8s forwards;
@@ -221,28 +222,36 @@
     .reason {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9rem;
+      gap: 0.85rem;
+      font-size: 0.88rem;
       color: var(--stone);
       font-weight: 300;
-      line-height: 1.5;
+      line-height: 1.65;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reason:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
     .reason-check {
-      width: 1.1rem;
-      height: 1.1rem;
-      background: rgba(92,107,82,0.12);
+      width: 1.25rem;
+      height: 1.25rem;
+      background: rgba(92,107,82,0.1);
+      border: 1px solid rgba(92,107,82,0.25);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      margin-top: 0.1rem;
+      margin-top: 0.2rem;
     }
 
     .reason-check svg { color: var(--sage); }
 
-    .reason strong { color: var(--ink); font-weight: 500; }
+    .reason strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 0.2rem; font-size: 0.9rem; letter-spacing: 0.01em; }
 
     .hero-cta-group {
       display: flex;
@@ -814,12 +823,12 @@
         Managing a trust sale?<br>
         <em>We know who to call.</em>
       </h1>
-      <div style="font-size:0.75rem;color:var(--sage);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Founded by William B. Plevy, California Real Estate Broker · DRE #01956776
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
+        <div style="width:1px;height:1.25rem;background:var(--sage);opacity:0.5;flex-shrink:0;"></div>
+        <span style="font-family:var(--sans);font-size:0.72rem;font-weight:400;letter-spacing:0.1em;color:var(--stone);text-transform:uppercase;">William B. Plevy &nbsp;·&nbsp; California Real Estate Broker &nbsp;·&nbsp; DRE #01956776</span>
       </div>
       <p class="hero-sub">
-        Most real estate agents handle everything. Ours handle one thing: trust, probate, and estate property sales. Wolf Allies connects you with the right specialist for your city — and it costs you nothing to let us make that introduction.
+        Most real estate agents handle everything.<br>Ours handle one thing — trust, probate, and estate property sales.<br><span style="color:var(--sage);font-style:italic;">We connect you with the right specialist for your city. At no cost.</span>
       </p>
 
       <div class="reasons">
@@ -827,31 +836,29 @@
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Specialists, not generalists</strong> — deep proven experience in trust, probate, and estate transactions specifically</span>
+          <span><strong>Specialists, not generalists</strong> — every agent in our network has deep, proven experience in trust, probate, and estate transactions specifically.</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>A specialist calls you within hours</strong> — experienced, ready to guide you through the entire process</span>
+          <span><strong>A specialist calls you within hours</strong> — experienced, ready to guide you through the entire process.</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Completely free to you.</strong> Your commission is identical to what you'd pay any agent directly — California law guarantees it</span>
+          <span><strong>Completely free to you — always.</strong> Under California law, an agent cannot charge you more because of a referral arrangement. Your commission is identical either way. Our involvement has zero financial impact.</span>
         </div>
         <div class="reason">
           <div class="reason-check">
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2.5" stroke="#5c6b52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <span><strong>Founded by a California attorney and broker</strong> — William B. Plevy, DRE #01956776</span>
+          <span><strong>Founded by William B. Plevy</strong> — California Real Estate Broker (DRE #01956776) and member of the California State Bar. Built specifically for families in exactly this situation.</span>
         </div>
       </div>
 
-      <div class="hero-cta-group" id="hero-cta-group">
-        <a href="#intake" class="btn-primary" onclick="focusForm(event)">Find My Specialist</a>
-      </div>
+      
     </div>
 
     <!-- FORM -->
@@ -1043,12 +1050,13 @@
       <div class="trust-left">
         <div class="section-eyebrow">Why Wolf Allies</div>
         <h2 class="section-title" style="margin-bottom: 0.75rem;">The right agent<br>for <em>this</em> situation.</h2>
-        <p class="section-lead">Not every agent is the right agent. Ours have deep, proven experience in trust, probate, and estate property sales — and that experience makes a real difference when the stakes are high.</p>
+        <p class="section-lead">"Families dealing with inherited property and trust sales deserve someone who understands every dimension of these transactions — the legal requirements, the fiduciary obligations, the tax implications, the family dynamics. Not a normal agent who doesn't know what a Certification of Trust is."</p>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;font-weight:300;letter-spacing:0.05em;">— William B. Plevy, Founder · Wolf Allies</p>
       </div>
       <div class="trust-pillars">
         <div class="trust-pillar">
           <div class="pillar-dot"></div>
-          <p class="pillar-text"><strong>Pre-vetted specialists only.</strong> Every agent in our network has proven experience with trust, probate, and estate transactions. They understand the legal complexity and emotional weight involved.</p>
+          <p class="pillar-text"><strong>Specialists, not generalists.</strong> Every agent in our network has proven experience with trust, probate, and estate transactions. They understand the documentation requirements, disclosure obligations, and fiduciary dynamics specific to these sales.</p>
         </div>
         <div class="trust-pillar">
           <div class="pillar-dot"></div>
@@ -1056,7 +1064,7 @@
         </div>
         <div class="trust-pillar">
           <div class="pillar-dot"></div>
-          <p class="pillar-text"><strong>Our service costs you nothing — not a penny more.</strong> Under California real estate law, an agent cannot charge a seller a higher commission because they're sharing a referral fee with a broker. The commission you pay is identical to what you'd pay working with any agent directly. Our involvement has zero impact on your bottom line.</p>
+          <p class="pillar-text"><strong>Completely free to you.</strong> Under California real estate law, an agent cannot charge you more because of a referral arrangement. The commission you pay is identical to what you'd pay any agent directly. Our involvement has zero financial impact — not on your commission, not on your proceeds.</p>
         </div>
         <div class="trust-pillar">
           <div class="pillar-dot"></div>

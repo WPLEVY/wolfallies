@@ -581,39 +581,33 @@
 <aside class="sidebar">
   <div class="form-card" id="connect">
     <div id="form-state">
-      <h2 class="form-title">Connect with a trust sale specialist</h2>
-      <p class="form-subtitle">Free — our involvement never affects what you pay your agent.</p>
-      <form id="lead-form" novalidate>
-        <div class="form-row">
-          <div class="form-group"><label>First</label><input type="text" id="fname" placeholder="Jane" required /></div>
-          <div class="form-group"><label>Last</label><input type="text" id="lname" placeholder="Smith" required /></div>
-        </div>
-        <div class="form-group"><label>Phone</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
-        <div class="form-group"><label>Property City</label><input type="text" id="city" placeholder="Enter city" required /></div>
-        <div class="form-group"><label>Situation</label>
-          <select id="situation" required>
-            <option value="" disabled selected>Select</option>
-            <option value="trust">Trust Administration</option>
-            <option value="probate">Probate</option>
-            <option value="inherited">Inherited Property</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Timeline</label>
-          <select id="timeline">
-            <option value="" disabled selected>When to sell?</option>
-            <option value="asap">As soon as possible</option>
-            <option value="90days">Within 90 days</option>
-            <option value="6months">Within 6 months</option>
-            <option value="figuring">Still figuring it out</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-submit" id="submit-btn">Connect Me →</button>
-      </form>
-      <p class="form-privacy">🔒 Private. Never shared.</p>
+      <h2 class="form-title">Connect with a<br>trust sale specialist</h2>
+      <p class="form-subtitle">Free — never affects what you pay your agent.</p>
+      <div class="form-group">
+        <label for="need-type">What best describes your situation?</label>
+        <select id="need-type">
+          <option value="" disabled selected>Select</option>
+          <option value="sell-property">I need to sell inherited, trust, or probate property</option>
+          <option value="trustee">I'm a trustee managing a trust</option>
+          <option value="executor">I'm an executor of an estate</option>
+          <option value="legal-help">I need legal help with trust or probate</option>
+          <option value="not-sure">Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>First</label><input type="text" id="fname" placeholder="Jane" /></div>
+        <div class="form-group"><label>Last</label><input type="text" id="lname" placeholder="Smith" /></div>
+      </div>
+      <div class="form-group"><label>Phone</label><input type="tel" id="phone" placeholder="(555) 000-0000" /></div>
+      <div class="form-group"><label>Property City</label><input type="text" id="city" placeholder="Enter city" /></div>
+      <button class="btn-submit" id="submit-btn" onclick="submitSidebarForm()">Connect Me →</button>
+      <p class="form-privacy">🔒 Not a law firm. Submitting does not create an attorney-client relationship.</p>
     </div>
     <div class="success-state" id="success-state">
       <div class="success-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 class="success-title">You're all set.</h3>
+      <p class="success-text">A specialist will call you within hours.</p>
+    </div>
       <h3 class="success-title">You're all set.</h3>
       <p class="success-text">A trust sale specialist will call you within a few hours.</p>
     </div>

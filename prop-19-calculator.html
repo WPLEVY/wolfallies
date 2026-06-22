@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposition 19 Calculator — California Inherited Property | Wolf Allies</title>
+  <meta name="description" content="Will Proposition 19 reassess your inherited California property? Free calculator estimates your new property tax bill under Prop 19 — and shows the cost of keeping vs selling." />
+  <link rel="canonical" href="https://wolfallies.com/prop-19-calculator" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Wolf Allies","item":"https://wolfallies.com"},{"@type":"ListItem","position":2,"name":"Inherited Property","item":"https://wolfallies.com/california-inherited-property"},{"@type":"ListItem","position":3,"name":"Prop 19 Calculator","item":"https://wolfallies.com/prop-19-calculator"}]}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--ink:#1a1a18;--stone:#3d3d38;--sage:#5c6b52;--warm-white:#faf7f2;--cream:#f5f0e8;--border:rgba(92,107,82,0.18);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--warm-white);color:var(--ink);line-height:1.6;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(250,247,242,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--ink);text-decoration:none}
+    .nav-logo span{color:var(--sage)}
+    .nav-cta{font-size:0.8rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:white;background:var(--sage);padding:0.65rem 1.5rem;border-radius:2px;text-decoration:none}
+    .nav-cta:hover{background:var(--ink)}
+    .wrap{max-width:760px;margin:0 auto;padding:8rem 3rem 6rem}
+    .breadcrumb{font-size:0.75rem;color:var(--stone);margin-bottom:1.5rem}
+    .breadcrumb a{color:var(--sage);text-decoration:none}
+    .eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+    .eyebrow::before{content:'';width:2rem;height:1px;background:var(--sage)}
+    h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.12;color:var(--ink);margin-bottom:1.25rem}
+    h1 em{font-style:italic;color:var(--sage)}
+    .lead{font-size:1rem;color:var(--stone);font-weight:300;line-height:1.8;margin-bottom:2.5rem;max-width:600px}
+    .disclaimer{background:rgba(92,107,82,0.06);border-left:3px solid var(--sage);border-radius:2px;padding:1rem 1.25rem;margin-bottom:2rem;font-size:0.8rem;color:var(--stone);font-weight:300;line-height:1.65}
+    .calc-card{background:white;border:1px solid var(--border);border-radius:6px;padding:2.5rem;margin-bottom:2rem;box-shadow:0 4px 30px rgba(26,26,24,0.06)}
+    .calc-title{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem}
+    .calc-subtitle{font-size:0.85rem;color:var(--stone);margin-bottom:2rem;font-weight:300}
+    .input-group{margin-bottom:1.25rem}
+    .input-group label{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.05em;color:var(--ink);margin-bottom:0.5rem}
+    .input-group .helper{font-size:0.72rem;color:var(--stone);font-weight:300;margin-bottom:0.4rem;line-height:1.5}
+    .input-group input,.input-group select{width:100%;padding:0.85rem 1rem;border:1px solid var(--border);border-radius:3px;font-family:var(--sans);font-size:0.95rem;color:var(--ink);background:var(--warm-white);outline:none;transition:border-color 0.2s;appearance:none}
+    .input-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c6b52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+    .input-group input:focus,.input-group select:focus{border-color:var(--sage);background:white}
+    .calc-btn{width:100%;padding:1.1rem;background:var(--sage);color:white;border:none;border-radius:3px;font-size:0.78rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background 0.2s}
+    .calc-btn:hover{background:var(--ink)}
+    .results{display:none;background:var(--cream);border:1px solid var(--border);border-radius:6px;padding:2.5rem;margin-bottom:2rem}
+    .results-title{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.5rem}
+    .result-row{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--border)}
+    .result-row:last-child{border-bottom:none}
+    .result-label{font-size:0.88rem;color:var(--stone);font-weight:400}
+    .result-value{font-family:var(--serif);font-size:1.6rem;color:var(--ink);font-weight:400}
+    .result-value.big{font-size:2.2rem;color:var(--sage)}
+    .result-value.warning{color:#a05a3a}
+    .verdict{background:white;border-left:4px solid var(--sage);padding:1.5rem;margin-top:1.5rem;border-radius:3px}
+    .verdict-title{font-size:0.7rem;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.6rem}
+    .verdict-text{font-size:0.92rem;color:var(--ink);font-weight:300;line-height:1.7}
+    h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--ink);margin:2.5rem 0 1rem;padding-top:1rem;border-top:1px solid var(--border)}
+    h2 em{font-style:italic;color:var(--sage)}
+    p{font-size:0.95rem;color:var(--stone);font-weight:300;line-height:1.85;margin-bottom:1.1rem}
+    p strong{color:var(--ink);font-weight:500}
+    .cta-box{background:var(--sage);border-radius:4px;padding:2rem;color:white;text-align:center;margin:3rem 0}
+    .cta-title{font-family:var(--serif);font-size:1.4rem;font-weight:300;margin-bottom:0.5rem}
+    .cta-text{font-size:0.88rem;font-weight:300;opacity:0.9;margin-bottom:1.25rem}
+    .cta-btn{display:inline-block;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);background:white;padding:0.7rem 1.5rem;border-radius:2px;text-decoration:none}
+    footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:4rem}
+    .footer-logo{font-family:var(--serif);font-size:1rem;color:var(--stone)}
+    .footer-logo span{color:var(--sage)}
+    .footer-text{font-size:0.7rem;color:var(--stone);text-align:center;line-height:1.6}
+    .footer-disc{font-size:0.68rem;color:rgba(61,61,56,0.5);max-width:260px;text-align:right;line-height:1.5}
+    @media(max-width:700px){nav{padding:1rem 1.5rem}.wrap{padding:6rem 1.5rem 4rem}.calc-card,.results{padding:1.5rem}footer{padding:1.75rem 1.5rem;flex-direction:column;text-align:center}.footer-disc{text-align:center;max-width:100%}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Wolf <span>Allies</span></a>
+  <a href="/#intake" class="nav-cta">Get Connected</a>
+</nav>
+<div class="wrap">
+  <div class="breadcrumb"><a href="/">Wolf Allies</a> › <a href="/california-inherited-property">Inherited Property</a> › Prop 19 Calculator</div>
+  <div class="eyebrow">Interactive Tool · California Inherited Property</div>
+  <h1>Proposition 19<br><em>Calculator</em></h1>
+  <p class="lead">Will Prop 19 trigger property tax reassessment on your inherited California home? This calculator gives you a quick estimate of your new property tax bill and the 5-year cost of holding versus selling.</p>
+  
+  <div class="disclaimer"><strong>Educational estimate only.</strong> This calculator provides a general estimate based on average California property tax rates. Actual property taxes depend on your specific county, applicable exemptions, and Mello-Roos or special assessments. Consult a CPA for guidance specific to your situation.</div>
+
+  <div class="calc-card">
+    <div class="calc-title">Estimate Your Prop 19 Impact</div>
+    <p class="calc-subtitle">Three quick questions. Results in seconds.</p>
+    
+    <div class="input-group">
+      <label>Current market value of the inherited property</label>
+      <div class="helper">What would the property sell for today?</div>
+      <input type="number" id="market-value" placeholder="$1,200,000" />
+    </div>
+    
+    <div class="input-group">
+      <label>Current assessed value (parent's basis)</label>
+      <div class="helper">Found on the most recent property tax bill — typically lower than market value due to Prop 13.</div>
+      <input type="number" id="assessed-value" placeholder="$450,000" />
+    </div>
+    
+    <div class="input-group">
+      <label>Will you make this your primary residence within 1 year?</label>
+      <select id="primary-residence">
+        <option value="" disabled selected>Select</option>
+        <option value="yes">Yes — moving in within 12 months</option>
+        <option value="no">No — keeping as rental, vacation, or vacant</option>
+        <option value="sell">No — planning to sell</option>
+      </select>
+    </div>
+    
+    <button class="calc-btn" onclick="calculate()">Calculate Impact →</button>
+  </div>
+
+  <div class="results" id="results">
+    <div class="results-title">Your Estimate</div>
+    <div class="result-row">
+      <span class="result-label">Annual property tax before death</span>
+      <span class="result-value" id="r-old">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">New annual property tax (after Prop 19)</span>
+      <span class="result-value big" id="r-new">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Annual increase</span>
+      <span class="result-value warning" id="r-increase">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">5-year additional tax cost</span>
+      <span class="result-value warning" id="r-5year">—</span>
+    </div>
+    <div class="verdict">
+      <div class="verdict-title">What This Means</div>
+      <div class="verdict-text" id="r-verdict">—</div>
+    </div>
+  </div>
+
+  <h2>How This <em>Calculator Works</em></h2>
+  <p>This tool uses California's standard 1.1% effective property tax rate (varies by county between approximately 1.0% and 1.25%). It applies Proposition 19 rules: if you make the property your primary residence, the parent's assessed value is preserved up to a $1 million value cap on appreciation. If you don't make it your primary residence, the property is reassessed to current market value.</p>
+  
+  <h2>The Big <em>Picture</em></h2>
+  <p>For most heirs who don't intend to live in the inherited property, Prop 19 makes selling significantly more attractive than keeping. The combination of avoiding reassessed property taxes and capturing the stepped-up basis tax benefit usually produces tens of thousands of dollars in better outcomes — particularly over 5+ years of holding.</p>
+  <p>If you're trying to decide between keeping or selling, read our <a href="/keep-vs-sell-inherited-california-home" style="color:var(--sage);">complete decision framework</a> for inherited California homes.</p>
+
+  <div class="cta-box">
+    <div class="cta-title">Want a full property valuation?</div>
+    <p class="cta-text">Wolf Allies connects you with a California specialist who can give you a no-cost market analysis and help you make the decision with full information.</p>
+    <a href="/#intake" class="cta-btn">Get Connected →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Wolf <span>Allies</span></div>
+  <div class="footer-text">© 2026 Wolf Allies · California Real Estate Referral Platform · DRE #01956776</div>
+  <div class="footer-disc">Not a law firm. Educational estimate only. Not tax advice.</div>
+</footer>
+
+<script>
+function calculate() {
+  const market = parseFloat(document.getElementById('market-value').value);
+  const assessed = parseFloat(document.getElementById('assessed-value').value);
+  const status = document.getElementById('primary-residence').value;
+  
+  if (!market || !assessed || !status) {
+    alert('Please fill in all three fields.');
+    return;
+  }
+  
+  const taxRate = 0.011;
+  const oldTax = assessed * taxRate;
+  let newAssessed, newTax, verdict;
+  
+  if (status === 'yes') {
+    const excess = market - assessed;
+    if (excess > 1000000) {
+      newAssessed = assessed + (excess - 1000000);
+      newTax = newAssessed * taxRate;
+      verdict = `Moving in as your primary residence preserves the bulk of your parent's low property tax basis. However, because the market value exceeds the assessed value by more than $1 million, the excess above $1 million is reassessed. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}</strong>. This is the best Prop 19 outcome available to you for keeping the property.`;
+    } else {
+      newAssessed = assessed;
+      newTax = oldTax;
+      verdict = `Moving in as your primary residence within 12 months fully preserves your parent's low property tax basis. Your annual property tax remains approximately <strong>$${Math.round(newTax).toLocaleString()}</strong>. This is the optimal Prop 19 outcome.`;
+    }
+  } else if (status === 'sell') {
+    newTax = oldTax;
+    verdict = `Since you're planning to sell, Prop 19 reassessment doesn't affect you — the property sells before the new property tax bill matters. Combined with the stepped-up basis benefit, selling within 12 months of inheritance is typically the most tax-efficient choice.`;
+  } else {
+    newAssessed = market;
+    newTax = market * taxRate;
+    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}</strong> — an increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year. Over 5 years, that's <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax alone. For most heirs in this situation, selling is the better financial choice.`;
+  }
+  
+  document.getElementById('r-old').textContent = '$' + Math.round(oldTax).toLocaleString();
+  document.getElementById('r-new').textContent = '$' + Math.round(newTax).toLocaleString();
+  const increase = newTax - oldTax;
+  document.getElementById('r-increase').textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase)).toLocaleString();
+  document.getElementById('r-5year').textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase * 5)).toLocaleString();
+  document.getElementById('r-verdict').innerHTML = verdict;
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>50?'0 2px 20px rgba(26,26,24,0.08)':'none'});
+</script>
+</body>
+</html>

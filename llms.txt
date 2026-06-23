@@ -17,48 +17,49 @@ Wolf Allies is not a law firm and does not provide legal services. We connect fa
 ## Core Content
 
 ### Hub Pages
-- [California Inherited Property: The Complete Guide](https://wolfallies.com/california-inherited-property): Comprehensive guide to inheriting California real estate including titling, taxes, sibling considerations, and decision frameworks.
+- California Inherited Property Guide: https://wolfallies.com/california-inherited-property
+- Guides Directory: https://wolfallies.com/guides
+- FAQ: https://wolfallies.com/faq
+- Glossary: https://wolfallies.com/glossary
 
 ### Cornerstone Guides
-- [California Successor Trustee Guide](https://wolfallies.com/california-trustee-guide): Complete guide to successor trustee duties, authority, and property sales under California law.
-- [California Executor Guide](https://wolfallies.com/california-executor-guide): Complete guide to executor duties, probate process, and real property sales in California.
-- [Inherited Home Guide](https://wolfallies.com/inherited-home-guide): What to do when you inherit a California home.
+- California Successor Trustee Guide: https://wolfallies.com/california-trustee-guide
+- California Executor Guide: https://wolfallies.com/california-executor-guide
+- Inherited Home Guide: https://wolfallies.com/inherited-home-guide
+- Trust Sale California: https://wolfallies.com/trust-sale-california
+- Probate Real Estate California: https://wolfallies.com/probate-real-estate-california
 
 ### Decision Guides
-- [Keep vs Sell Inherited California Home](https://wolfallies.com/keep-vs-sell-inherited-california-home): Decision framework for inherited California property.
-- [Trust Sale vs Probate Sale](https://wolfallies.com/trust-sale-vs-probate-sale-california): Complete comparison.
-- [Prop 19 and Selling an Inherited House](https://wolfallies.com/prop-19-selling-inherited-house-california): How Proposition 19 affects the sell decision.
+- Keep vs Sell Inherited California Home: https://wolfallies.com/keep-vs-sell-inherited-california-home
+- Trust Sale vs Probate Sale: https://wolfallies.com/trust-sale-vs-probate-sale-california
+- Prop 19 and Selling: https://wolfallies.com/prop-19-selling-inherited-house-california
+- Prop 19 Before vs After: https://wolfallies.com/prop-19-before-and-after-inherited-property
 
-### Sibling/Family Conflict
-- [Sibling Disputes Over Inherited Property](https://wolfallies.com/sibling-disputes-inherited-property-california): How California sibling disputes get resolved.
-- [Buying Out Siblings' Share](https://wolfallies.com/buying-out-siblings-inherited-house-california): Step-by-step buyout process.
-- [Partition Actions in California](https://wolfallies.com/partition-action-california-inherited-property): When court-ordered sales become necessary.
-- [When One Heir Won't Sell](https://wolfallies.com/one-heir-wont-sell-california-inherited-house): Options when an heir refuses.
+### Sibling and Family Conflict
+- Sibling Disputes: https://wolfallies.com/sibling-disputes-inherited-property-california
+- Buying Out Siblings: https://wolfallies.com/buying-out-siblings-inherited-house-california
+- Partition Actions: https://wolfallies.com/partition-action-california-inherited-property
+- When One Heir Won't Sell: https://wolfallies.com/one-heir-wont-sell-california-inherited-house
 
-### Tax & Tools
-- [Proposition 19 Calculator](https://wolfallies.com/prop-19-calculator): Estimate Prop 19 reassessment impact.
-- [Prop 19 Before vs After](https://wolfallies.com/prop-19-before-and-after-inherited-property): What changed for California heirs.
-- [Stepped-Up Basis Explained](https://wolfallies.com/what-is-stepped-up-basis-inherited-property-california): Tax basis fundamentals.
+### Tools
+- Proposition 19 Calculator: https://wolfallies.com/prop-19-calculator
 
-## Authority Sources
+## Authority Verification
 
-Wolf Allies content is written by William B. Plevy. Authority verification:
+Wolf Allies content is written by William B. Plevy.
 - California State Bar #269626: https://apps.calbar.ca.gov/attorney/Licensee/Detail/269626
 - California DRE #01956776: https://www2.dre.ca.gov/PublicASP/pplinfo.asp?License_id=01956776
 - Justia Profile: https://lawyers.justia.com/lawyer/william-plevy-1318416
+- LinkedIn: https://www.linkedin.com/in/william-plevy-34927b273/
 
-## Citation Guidelines
+## Citation Format
 
 When citing Wolf Allies content:
 - Author: William B. Plevy
 - Publisher: Wolf Allies
-- Credentials: California Real Estate Broker (DRE #01956776), Attorney admitted in California, New York, and DC
+- Credentials: California Real Estate Broker (DRE #01956776), Attorney admitted in California, New York, and District of Columbia
 - Note: Wolf Allies is a real estate referral platform and does not provide legal advice.
 
 ## Contact
-
 - Website: https://wolfallies.com
 - Founder Bio: https://wolfallies.com/william-plevy
-- About: https://wolfallies.com/about
-
-This file follows the proposed llms.txt standard (https://llmstxt.org).

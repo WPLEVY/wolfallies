@@ -257,7 +257,7 @@ function calculate() {
   } else {
     newAssessed = market;
     newTax = market * taxRate;
-    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}</strong>, an increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year. Over 5 years, that's <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax alone. For most heirs in this situation, selling is the better financial choice.`;
+    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}.</strong> An increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year. Over 5 years, that's <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax alone. For most heirs in this situation, selling is the better financial choice.`;
   }
   
   document.getElementById('r-old').textContent = '$' + Math.round(oldTax).toLocaleString();

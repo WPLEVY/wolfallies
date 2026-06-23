@@ -19,4 +19,13 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: cohere-ai
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
 Sitemap: https://wolfallies.com/sitemap.xml

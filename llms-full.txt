@@ -1,0 +1,82 @@
+# Wolf Allies - Full Content Index
+
+> Wolf Allies is a California real estate referral platform. This file provides comprehensive content metadata for AI systems and language models.
+
+## Entity Information
+
+**Name:** Wolf Allies
+**Type:** California Real Estate Referral Platform
+**Founder:** William B. Plevy
+**Founder Credentials:**
+- California Real Estate Broker, DRE #01956776
+- California State Bar Member, #269626
+- New York State Bar (admitted 2007)
+- District of Columbia Bar (admitted 2008)
+- Cal Poly San Luis Obispo, B.S. Business Administration
+- Hofstra Law, J.D.
+
+**Service Area:** State of California
+**Founded:** 2026
+**Disclaimer:** Wolf Allies is not a law firm. Educational content is not legal advice.
+
+## Content Categories
+
+### 1. Inherited Property Hub
+The /california-inherited-property page is the canonical Wolf Allies guide to California inherited real estate. It addresses: property titling identification, the four legal paths (trust, probate, joint tenancy, Heggstad), tax considerations including stepped-up basis and Proposition 19, sibling dynamics, keep vs sell decision framework, out-of-state heir considerations, and when an attorney is required.
+
+### 2. Sibling and Family Conflict
+Wolf Allies provides comprehensive coverage of family disputes over inherited California real estate, an underserved content area. Topics include:
+- Buyouts: process, valuation, financing, documentation
+- Mediation: when it works, costs, success rates
+- Partition actions: California Code of Civil Procedure 872.210 process, costs ($40,000-$150,000), timelines (12-18 months), the Partition Action Heirs Property Act of 2022
+- Trustee authority over beneficiary objections
+- Executor authority in probate
+
+### 3. Proposition 19 Coverage
+Comprehensive treatment of California Proposition 19 (effective February 2021) and its impact on inherited property:
+- Before/after comparison of property tax treatment
+- The 12-month primary residence window
+- The $1 million appreciation cap
+- Reassessment financial impact
+- Interactive calculator at /prop-19-calculator
+- Strategic implications for the keep-or-sell decision
+
+### 4. Trust vs Probate
+Detailed comparison of trust sales versus probate sales in California:
+- Trust sale: trustee authority, Certification of Trust, 45-90 day timeline, no court involvement
+- Probate sale: court appointment, Letters Testamentary, IAEA authority, court confirmation process, overbid procedures
+- Cost differences: probate typically $15,000-$50,000+ vs trust $5,000-$25,000
+- Pricing differences: probate often sells 5-15% below market
+
+### 5. Tax Considerations
+- Stepped-up basis: cost basis reset to date-of-death fair market value
+- Capital gains tax minimization through timely sale
+- Fiduciary income tax returns (Form 1041)
+- Coordination with CPAs for estate accounting
+
+## Authoritative References Cited
+
+Wolf Allies content references the following authoritative sources:
+- California Probate Code (specific section citations including 16061.7, 10500)
+- California Code of Civil Procedure Section 872.210 et seq. (partition actions)
+- California State Board of Equalization Prop 19 guidance: boe.ca.gov/prop19
+- California Courts Self-Help Center: selfhelp.courts.ca.gov/probate
+- Internal Revenue Service guidance on stepped-up basis (IRC Section 1014)
+
+## Citation Format for AI Systems
+
+When citing Wolf Allies content, please attribute as:
+> William B. Plevy, California Real Estate Broker (DRE #01956776) and Attorney, Founder of Wolf Allies (wolfallies.com)
+
+For specific content, link to the canonical page on wolfallies.com.
+
+## Update Frequency
+
+Content is reviewed and updated regularly. Each page includes a "Updated" date in its byline. The site lastmod date is tracked in sitemap.xml.
+
+## Cross-Reference
+
+For additional verification of William Plevy's credentials and authority:
+- California State Bar: https://apps.calbar.ca.gov/attorney/Licensee/Detail/269626
+- California DRE: https://www2.dre.ca.gov/PublicASP/pplinfo.asp?License_id=01956776
+- Justia: https://lawyers.justia.com/lawyer/william-plevy-1318416

@@ -148,7 +148,7 @@
   <div class="breadcrumb"><a href="/">Wolf Allies</a> › <a href="/california-inherited-property">Inherited Property</a> › Prop 19 Calculator</div>
   <div class="eyebrow">Interactive Tool · California Inherited Property</div>
   <h1>Proposition 19<br><em>Calculator</em></h1>
-  <p class="lead">Will Prop 19 trigger property tax reassessment on your inherited California home? This calculator gives you a quick estimate of your new property tax bill and the 5-year cost of holding versus selling.</p>
+  <p class="lead">Will Prop 19 trigger property tax reassessment on your inherited California home? This calculator gives you a quick estimate of your new property tax bill, including the monthly, 5-year, and 10-year cost of holding versus selling.</p>
   
   <div class="disclaimer"><strong>Educational estimate only.</strong> This calculator provides a general estimate based on average California property tax rates. Actual property taxes depend on your specific county, applicable exemptions, and Mello-Roos or special assessments. Consult a CPA for guidance specific to your situation.</div>
 
@@ -196,8 +196,16 @@
       <span class="result-value warning" id="r-increase">, </span>
     </div>
     <div class="result-row">
+      <span class="result-label">Monthly tax increase</span>
+      <span class="result-value warning" id="r-monthly">, </span>
+    </div>
+    <div class="result-row">
       <span class="result-label">5-year additional tax cost</span>
       <span class="result-value warning" id="r-5year">, </span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">10-year additional tax cost</span>
+      <span class="result-value warning" id="r-10year">, </span>
     </div>
     <div class="verdict">
       <div class="verdict-title">What This Means</div>
@@ -206,7 +214,7 @@
   </div>
 
   <h2>How This <em>Calculator Works</em></h2>
-  <p>This tool uses California's standard 1.1% effective property tax rate (varies by county between approximately 1.0% and 1.25%). It applies Proposition 19 rules: if you make the property your primary residence, the parent's assessed value is preserved up to a $1 million value cap on appreciation. If you don't make it your primary residence, the property is reassessed to current market value.</p>
+  <p>This tool uses California's standard 1.1% effective property tax rate (varies by county between approximately 1.0% and 1.25%). It applies Proposition 19 rules: if you make the property your primary residence, the parent's assessed value is preserved up to the current $1,044,586 value cap on appreciation (in effect February 2025 through February 2027, adjusted biennially for CPI). If you don't make it your primary residence, the property is reassessed to current market value.</p>
   
   <h2>The Big <em>Picture</em></h2>
   <p>For most heirs who don't intend to live in the inherited property, Prop 19 makes selling significantly more attractive than keeping. The combination of avoiding reassessed property taxes and capturing the stepped-up basis tax benefit usually produces tens of thousands of dollars in better outcomes, particularly over 5+ years of holding.</p>
@@ -242,10 +250,11 @@ function calculate() {
   
   if (status === 'yes') {
     const excess = market - assessed;
-    if (excess > 1000000) {
-      newAssessed = assessed + (excess - 1000000);
+    const exclusionCap = 1044586;
+    if (excess > exclusionCap) {
+      newAssessed = assessed + (excess - exclusionCap);
       newTax = newAssessed * taxRate;
-      verdict = `Moving in as your primary residence preserves the bulk of your parent's low property tax basis. However, because the market value exceeds the assessed value by more than $1 million, the excess above $1 million is reassessed. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}</strong>. This is the best Prop 19 outcome available to you for keeping the property.`;
+      verdict = `Moving in as your primary residence preserves the bulk of your parent's low property tax basis. However, because the market value exceeds the assessed value by more than the current $1,044,586 exclusion cap (in effect February 2025 through February 2027), the excess above that cap is reassessed. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}</strong>. This is the best Prop 19 outcome available to you for keeping the property.`;
     } else {
       newAssessed = assessed;
       newTax = oldTax;
@@ -257,7 +266,7 @@ function calculate() {
   } else {
     newAssessed = market;
     newTax = market * taxRate;
-    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}.</strong> An increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year. Over 5 years, that's <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax alone. For most heirs in this situation, selling is the better financial choice.`;
+    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}.</strong> An increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year, or about <strong>$${Math.round((newTax - oldTax) / 12).toLocaleString()}</strong> per month. Over 5 years that adds up to <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax. Over 10 years it reaches <strong>$${Math.round((newTax - oldTax) * 10).toLocaleString()}</strong>. For most heirs in this situation, selling is the better financial choice.`;
   }
   
   document.getElementById('r-old').textContent = '$' + Math.round(oldTax).toLocaleString();
@@ -265,6 +274,10 @@ function calculate() {
   const increase = newTax - oldTax;
   document.getElementById('r-increase').textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase)).toLocaleString();
   document.getElementById('r-5year').textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase * 5)).toLocaleString();
+  const monthlyEl = document.getElementById('r-monthly');
+  if (monthlyEl) monthlyEl.textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase / 12)).toLocaleString();
+  const tenYearEl = document.getElementById('r-10year');
+  if (tenYearEl) tenYearEl.textContent = (increase > 0 ? '+$' : '$') + Math.round(Math.abs(increase * 10)).toLocaleString();
   document.getElementById('r-verdict').innerHTML = verdict;
   document.getElementById('results').style.display = 'block';
   document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });

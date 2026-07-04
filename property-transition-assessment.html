@@ -78,10 +78,14 @@
     .btn-submit { width: 100%; padding: 1rem; background: var(--sage); color: white; border: none; border-radius: 2px; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem; }
     .btn-submit:hover { background: var(--ink); }
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-secondary { width: 100%; padding: 0.9rem; background: none; border: 1px solid var(--border); color: var(--stone); border-radius: 2px; font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; cursor: pointer; margin-top: 0.6rem; transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--sage); color: var(--sage); }
+    .btn-link { background: none; border: none; font-size: 0.78rem; color: var(--sage); text-decoration: underline; cursor: pointer; display: block; text-align: center; width: 100%; margin-top: 0.75rem; }
     .btn-back { background: none; border: none; font-size: 0.78rem; color: var(--stone); cursor: pointer; margin-top: 0.75rem; display: block; text-align: center; width: 100%; padding: 0.4rem; }
     .recommendation-box { background: var(--warm-white); border: 1px solid var(--border); border-left: 4px solid var(--sage); border-radius: 3px; padding: 1.25rem 1.4rem; margin-bottom: 1.25rem; font-size: 0.88rem; line-height: 1.75; color: var(--stone); }
     .recommendation-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
     .disclaimer { font-size: 0.72rem; color: var(--stone); opacity: 0.8; margin-bottom: 1.5rem; line-height: 1.6; }
+    .divider { text-align: center; font-size: 0.7rem; color: var(--stone); opacity: 0.6; margin: 1.5rem 0; text-transform: uppercase; letter-spacing: 0.1em; }
     .success-state { display: none; text-align: center; padding: 1rem 0; }
     .success-icon { width: 4rem; height: 4rem; background: rgba(92,107,82,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
     .success-title { font-family: var(--serif); font-size: 1.75rem; color: var(--ink); margin-bottom: 0.6rem; }
@@ -98,7 +102,7 @@
 
 <div class="page-wrap">
   <div class="page-eyebrow">Free · Takes About 2 Minutes</div>
-  <h1>Get your personalized <em style="font-style:italic;color:var(--sage);">next step</em></h1>
+  <h1>Get your personalized <em>next step</em></h1>
   <p class="page-sub">Answer a few questions about your situation. We'll tell you what's likely true before we ask for anything else.</p>
 
   <div class="card">
@@ -111,21 +115,18 @@
     <!-- STEP 1: Situation basics -->
     <div id="step-1">
       <h2 class="form-title">What's going <em>on?</em></h2>
-      <p class="form-subtitle">This helps us ask the right follow-up questions.</p>
+      <p class="form-subtitle">This helps us ask the right follow-up questions. No commitment, just a starting point.</p>
       <div class="form-group">
         <label for="city">Property City</label>
         <input type="text" id="city" placeholder="Enter city" required />
       </div>
       <div class="form-group">
-        <label for="situation">Situation Type</label>
+        <label for="situation">What's Going On</label>
         <select id="situation" required>
-          <option value="" disabled selected>Select your situation</option>
-          <option value="trust">Trust Administration (TA)</option>
-          <option value="probate">Probate</option>
-          <option value="inherited">Inherited Property</option>
-          <option value="divorce">Divorce / Separation</option>
-          <option value="estate">General Estate Sale</option>
-          <option value="other">Other / Not Sure</option>
+          <option value="" disabled selected>Select</option>
+          <option value="inherited">Someone passed away and left real estate</option>
+          <option value="divorce">Divorce or separation</option>
+          <option value="other">Something else / not sure yet</option>
         </select>
       </div>
       <div class="form-group">
@@ -150,10 +151,11 @@
           <option value="figuring">Still figuring it out</option>
         </select>
       </div>
-      <button type="button" id="step1-next-btn" class="btn-submit">Continue →</button>
+      <button type="button" id="step1-next-btn" class="btn-submit">See My Recommendation First →</button>
+      <button type="button" id="step1-skip-btn" class="btn-link">Skip ahead — just connect me with a specialist</button>
     </div>
 
-    <!-- STEP 2: Decision engine questions (trust/probate/inherited/estate only) -->
+    <!-- STEP 2: Decision engine questions (inherited/death-related property only) -->
     <div id="step-2" style="display:none;">
       <h2 class="form-title">A few more <em>details</em></h2>
       <p class="form-subtitle">This determines your likely legal path.</p>
@@ -186,13 +188,13 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="heir-agreement">Are all heirs or beneficiaries in agreement about what to do?</label>
+        <label for="heir-agreement">Is anyone else involved in this decision?</label>
         <select id="heir-agreement" required>
           <option value="" disabled selected>Select</option>
-          <option value="just-me">Just me</option>
-          <option value="agree">Yes, we agree</option>
-          <option value="disagree">No, we disagree</option>
-          <option value="not-sure">Not sure yet</option>
+          <option value="just-me">No, it's just me</option>
+          <option value="agree">Yes, and we're aligned</option>
+          <option value="disagree">Yes, and we disagree</option>
+          <option value="not-sure">Yes, but we haven't discussed it yet</option>
         </select>
       </div>
       <button type="button" id="step2-next-btn" class="btn-submit">See My Recommendation →</button>
@@ -206,38 +208,79 @@
       <div class="recommendation-box" id="recommendation-box"></div>
       <p class="disclaimer">This is general information, not legal advice for your specific situation.</p>
 
-      <div style="border-top:1px solid var(--border);padding-top:1.25rem;margin-top:0.5rem;">
-        <p class="form-subtitle" style="margin-bottom:1rem;">Want to be matched with a vetted specialist for your city, at no cost? Leave your info below.</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Jane" required />
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Smith" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="phone">Best Phone Number</label>
-          <input type="tel" id="phone" placeholder="(555) 000-0000" required />
-        </div>
-        <div class="form-group">
-          <label for="heard-about">How did you hear about us?</label>
-          <select id="heard-about">
-            <option value="" disabled selected>Select (optional)</option>
-            <option value="google_search">Google Search</option>
-            <option value="chatgpt">ChatGPT</option>
-            <option value="claude">Claude</option>
-            <option value="perplexity">Perplexity</option>
-            <option value="gemini">Gemini</option>
-            <option value="friend_or_attorney">Friend or Attorney</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
+      <div class="form-group">
+        <label for="rec-email">Email (to send you this recommendation)</label>
+        <input type="email" id="rec-email" placeholder="jane@example.com" />
       </div>
+      <button type="button" id="email-rec-btn" class="btn-secondary">Email Me This Recommendation →</button>
+
+      <div class="divider">or</div>
+
+      <p class="form-subtitle" style="margin-bottom:1rem;">Want to be matched with a vetted specialist for your city, at no cost?</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Best Phone Number</label>
+        <input type="tel" id="phone" placeholder="(555) 000-0000" />
+      </div>
+      <div class="form-group">
+        <label for="heard-about">How did you hear about us?</label>
+        <select id="heard-about">
+          <option value="" disabled selected>Select (optional)</option>
+          <option value="google_search">Google Search</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="claude">Claude</option>
+          <option value="perplexity">Perplexity</option>
+          <option value="gemini">Gemini</option>
+          <option value="friend_or_attorney">Friend or Attorney</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
       <button type="button" id="back-btn-3" class="btn-back">← Back</button>
+    </div>
+
+    <!-- QUICK PATH: skip straight to a specialist referral, no decision questions -->
+    <div id="step-quick" style="display:none;">
+      <h2 class="form-title">Connect me with a <em>specialist</em></h2>
+      <p class="form-subtitle">Just your contact info, no other questions.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="q-fname">First Name</label>
+          <input type="text" id="q-fname" placeholder="Jane" required />
+        </div>
+        <div class="form-group">
+          <label for="q-lname">Last Name</label>
+          <input type="text" id="q-lname" placeholder="Smith" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="q-phone">Best Phone Number</label>
+        <input type="tel" id="q-phone" placeholder="(555) 000-0000" required />
+      </div>
+      <div class="form-group">
+        <label for="q-heard-about">How did you hear about us?</label>
+        <select id="q-heard-about">
+          <option value="" disabled selected>Select (optional)</option>
+          <option value="google_search">Google Search</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="claude">Claude</option>
+          <option value="perplexity">Perplexity</option>
+          <option value="gemini">Gemini</option>
+          <option value="friend_or_attorney">Friend or Attorney</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button type="button" id="quick-submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
+      <button type="button" id="back-btn-quick" class="btn-back">← Back</button>
     </div>
 
     <!-- SUCCESS -->
@@ -245,8 +288,8 @@
       <div class="success-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#5c6b52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <h2 class="success-title">You're all set.</h2>
-      <p class="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours.</p>
+      <h2 class="success-title" id="success-title">You're all set.</h2>
+      <p class="success-text" id="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours.</p>
     </div>
   </div>
 </div>
@@ -259,13 +302,38 @@
   const step1 = document.getElementById('step-1');
   const step2 = document.getElementById('step-2');
   const step3 = document.getElementById('step-3');
+  const stepQuick = document.getElementById('step-quick');
   const successState = document.getElementById('success-state');
   const progressDots = document.querySelectorAll('.progress-dot');
+  const FORM_ENDPOINT = 'https://formspree.io/f/mqeoppoo';
 
-  const DECISION_ENGINE_SITUATIONS = ['trust', 'probate', 'inherited', 'estate'];
+  const DECISION_ENGINE_SITUATIONS = ['inherited'];
 
   function setProgress(n) {
     progressDots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.step, 10) <= n));
+  }
+
+  function hideAllSteps() {
+    [step1, step2, step3, stepQuick].forEach(s => s.style.display = 'none');
+  }
+
+  function sendSilent(payload) {
+    // Fire-and-forget partial capture. Never blocks the UI, never shown to the visitor.
+    try {
+      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+    } catch (e) { /* fail silently, this is best-effort only */ }
+  }
+
+  function basePayload() {
+    return {
+      timestamp: new Date().toISOString(),
+      city: document.getElementById('city').value.trim(),
+      situation: document.getElementById('situation').value,
+      role: document.getElementById('role').value,
+      timeline: document.getElementById('timeline').value || 'Not specified',
+      source: new URLSearchParams(window.location.search).get('src') || 'direct',
+      entry_page: window.location.pathname
+    };
   }
 
   document.getElementById('step1-next-btn').addEventListener('click', function() {
@@ -273,19 +341,36 @@
     const situation = document.getElementById('situation').value;
     const role = document.getElementById('role').value;
     if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
-    step1.style.display = 'none';
+    hideAllSteps();
     if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
       step2.style.display = 'block';
       setProgress(2);
     } else {
       renderRecommendation(buildGenericRecommendation(situation));
+      sendSilent(Object.assign({ status: 'partial_recommendation_viewed' }, basePayload(), { recommendation_key: step3.dataset.recommendationKey, recommendation_text: step3.dataset.recommendationText }));
       step3.style.display = 'block';
       setProgress(3);
     }
   });
 
+  document.getElementById('step1-skip-btn').addEventListener('click', function() {
+    const city = document.getElementById('city').value.trim();
+    const situation = document.getElementById('situation').value;
+    const role = document.getElementById('role').value;
+    if (!city || !situation || !role) { alert('Please fill in all fields first, then we can connect you directly.'); return; }
+    hideAllSteps();
+    stepQuick.style.display = 'block';
+    setProgress(3);
+  });
+
   document.getElementById('back-btn-2').addEventListener('click', function() {
-    step2.style.display = 'none';
+    hideAllSteps();
+    step1.style.display = 'block';
+    setProgress(1);
+  });
+
+  document.getElementById('back-btn-quick').addEventListener('click', function() {
+    hideAllSteps();
     step1.style.display = 'block';
     setProgress(1);
   });
@@ -303,14 +388,18 @@
     const timeline = document.getElementById('timeline').value;
     const rec = buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline });
     renderRecommendation(rec);
-    step2.style.display = 'none';
+    sendSilent(Object.assign({ status: 'partial_recommendation_viewed' }, basePayload(), {
+      trust_status: trustStatus, primary_residence: primaryResidence, property_value: propertyValue, heir_agreement: heirAgreement,
+      recommendation_key: rec.key, recommendation_text: rec.text
+    }));
+    hideAllSteps();
     step3.style.display = 'block';
     setProgress(3);
   });
 
   document.getElementById('back-btn-3').addEventListener('click', function() {
     const situation = document.getElementById('situation').value;
-    step3.style.display = 'none';
+    hideAllSteps();
     if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
       step2.style.display = 'block';
       setProgress(2);
@@ -321,9 +410,9 @@
   });
 
   // --- Recommendation engine: deterministic, rule-based (not AI-generated). ---
-  function buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline }) {
+  function buildRecommendation({ trustStatus, primaryResidence, propertyValue, heirAgreement, timeline }) {
     let legalKey, legalText;
-    if (trustStatus === 'yes' || situation === 'trust') {
+    if (trustStatus === 'yes') {
       legalKey = 'trust_admin';
       legalText = "Based on what you've shared, this sounds like Trust Administration rather than probate. As successor trustee, you can typically move forward with selling once you have your Certification of Trust, without needing probate court involvement.";
     } else if (primaryResidence === 'yes' && propertyValue === 'under750') {
@@ -351,7 +440,7 @@
     let text = legalText + ' ' + dispositionText;
     if (heirAgreement === 'disagree') {
       key = 'family_disagreement_' + legalKey;
-      text = "Before anything else: situations where heirs disagree usually benefit from a neutral third party, such as a mediator or attorney, to get everyone aligned before any property decisions are made. " + text;
+      text = "Before anything else: situations where the people involved disagree usually benefit from a neutral third party, such as a mediator or attorney, to get everyone aligned before any property decisions are made. " + text;
     }
     return { key, text };
   }
@@ -375,46 +464,65 @@
     step3.dataset.recommendationText = rec.text;
   }
 
+  document.getElementById('email-rec-btn').addEventListener('click', async function() {
+    const email = document.getElementById('rec-email').value.trim();
+    if (!email) { alert('Please enter an email address.'); return; }
+    const btn = this;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    const payload = Object.assign({ status: 'complete', path: 'email_recommendation', email }, basePayload(), {
+      trust_status: document.getElementById('trust-status') ? document.getElementById('trust-status').value : '',
+      primary_residence: document.getElementById('primary-residence') ? document.getElementById('primary-residence').value : '',
+      property_value: document.getElementById('property-value') ? document.getElementById('property-value').value : '',
+      heir_agreement: document.getElementById('heir-agreement') ? document.getElementById('heir-agreement').value : '',
+      recommendation_key: step3.dataset.recommendationKey || '',
+      recommendation_text: step3.dataset.recommendationText || ''
+    });
+    try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) {}
+    document.getElementById('success-title').textContent = 'On its way.';
+    document.getElementById('success-text').textContent = "We've sent your recommendation to " + email + ". Check your inbox in the next few minutes.";
+    hideAllSteps();
+    successState.style.display = 'block';
+  });
+
   document.getElementById('submit-btn').addEventListener('click', async function() {
     const fname = document.getElementById('fname').value.trim();
     const lname = document.getElementById('lname').value.trim();
     const phone = document.getElementById('phone').value.trim();
     if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
-
-    const submitBtn = this;
-    submitBtn.textContent = 'Connecting...';
-    submitBtn.disabled = true;
-
-    const city = document.getElementById('city').value.trim();
-    const situation = document.getElementById('situation').value;
-    const role = document.getElementById('role').value;
-    const timeline = document.getElementById('timeline').value;
+    const btn = this;
+    btn.textContent = 'Connecting...';
+    btn.disabled = true;
     const heardAbout = document.getElementById('heard-about').value || 'not_specified';
-    const trustStatus = document.getElementById('trust-status') ? document.getElementById('trust-status').value : '';
-    const primaryResidence = document.getElementById('primary-residence') ? document.getElementById('primary-residence').value : '';
-    const propertyValue = document.getElementById('property-value') ? document.getElementById('property-value').value : '';
-    const heirAgreement = document.getElementById('heir-agreement') ? document.getElementById('heir-agreement').value : '';
-
-    const payload = {
-      timestamp: new Date().toISOString(),
-      name: fname + ' ' + lname,
-      phone, city, situation, role,
-      timeline: timeline || 'Not specified',
-      trust_status: trustStatus, primary_residence: primaryResidence,
-      property_value: propertyValue, heir_agreement: heirAgreement,
+    const payload = Object.assign({ status: 'complete', path: 'connect_specialist', name: fname + ' ' + lname, phone, self_reported_source: heardAbout }, basePayload(), {
+      trust_status: document.getElementById('trust-status') ? document.getElementById('trust-status').value : '',
+      primary_residence: document.getElementById('primary-residence') ? document.getElementById('primary-residence').value : '',
+      property_value: document.getElementById('property-value') ? document.getElementById('property-value').value : '',
+      heir_agreement: document.getElementById('heir-agreement') ? document.getElementById('heir-agreement').value : '',
       recommendation_key: step3.dataset.recommendationKey || '',
-      recommendation_text: step3.dataset.recommendationText || '',
-      self_reported_source: heardAbout,
-      source: new URLSearchParams(window.location.search).get('src') || 'direct',
-      entry_page: window.location.pathname
-    };
+      recommendation_text: step3.dataset.recommendationText || ''
+    });
+    try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) {}
+    document.getElementById('success-title').textContent = "You're all set.";
+    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will call you within a few hours.';
+    hideAllSteps();
+    successState.style.display = 'block';
+  });
 
-    try {
-      await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
-    } catch (err) {
-      // Fail open: still show success so the visitor isn't stuck, per existing site pattern.
-    }
-    step3.style.display = 'none';
+  document.getElementById('quick-submit-btn').addEventListener('click', async function() {
+    const fname = document.getElementById('q-fname').value.trim();
+    const lname = document.getElementById('q-lname').value.trim();
+    const phone = document.getElementById('q-phone').value.trim();
+    if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
+    const btn = this;
+    btn.textContent = 'Connecting...';
+    btn.disabled = true;
+    const heardAbout = document.getElementById('q-heard-about').value || 'not_specified';
+    const payload = Object.assign({ status: 'complete', path: 'quick_referral', name: fname + ' ' + lname, phone, self_reported_source: heardAbout }, basePayload());
+    try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) {}
+    document.getElementById('success-title').textContent = "You're all set.";
+    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will call you within a few hours.';
+    hideAllSteps();
     successState.style.display = 'block';
   });
 </script>

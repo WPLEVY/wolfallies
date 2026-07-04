@@ -927,15 +927,16 @@
     <div class="hero-right" id="intake">
       <div class="form-card">
         <div id="form-state">
+          <div class="progress" id="progress-bar" style="display:flex;gap:0.4rem;margin-bottom:1.5rem;">
+            <div class="progress-dot active" data-step="1" style="height:3px;flex:1;background:var(--sage);border-radius:2px;"></div>
+            <div class="progress-dot" data-step="2" style="height:3px;flex:1;background:var(--border);border-radius:2px;"></div>
+            <div class="progress-dot" data-step="3" style="height:3px;flex:1;background:var(--border);border-radius:2px;"></div>
+            <div class="progress-dot" data-step="4" style="height:3px;flex:1;background:var(--border);border-radius:2px;"></div>
+          </div>
           <!-- STEP 1 -->
           <div id="step-1">
             <h2 class="form-title">Find your<br>specialist</h2>
-            <p class="form-subtitle">Two steps. A specialist calls you within hours.</p>
-            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
-              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">1</div>
-              <div style="height:2px;flex:1;background:var(--border);border-radius:1px;"></div>
-              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:var(--stone);flex-shrink:0;">2</div>
-            </div>
+            <p class="form-subtitle">A few quick questions. A specialist calls you within hours.</p>
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>
@@ -955,38 +956,19 @@
           </div>
           <!-- STEP 2 -->
           <div id="step-2" style="display:none;">
-            <h2 class="form-title">Almost there , <br>your situation</h2>
-            <p class="form-subtitle">This helps us match you with the right specialist.</p>
-            <div class="form-group">
-              <label for="need-type">What best describes your situation?</label>
-              <select id="need-type">
-                <option value="" disabled selected>Select</option>
-                <option value="sell-property">I need to sell inherited, trust, or probate property</option>
-                <option value="trustee">I'm a trustee managing a trust</option>
-                <option value="executor">I'm an executor of an estate</option>
-                <option value="legal-help">I need legal help with trust or probate</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
-              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);opacity:0.4;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">1</div>
-              <div style="height:2px;flex:1;background:var(--sage);border-radius:1px;"></div>
-              <div style="width:1.5rem;height:1.5rem;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;">2</div>
-            </div>
+            <h2 class="form-title">Tell us <em>what's going on</em></h2>
+            <p class="form-subtitle">This helps us ask the right follow-up questions and match you with the right specialist.</p>
             <div class="form-group">
               <label for="city">Property City</label>
               <input type="text" id="city" placeholder="Enter city" required />
             </div>
             <div class="form-group">
-              <label for="situation">Situation Type</label>
+              <label for="situation">What's Going On</label>
               <select id="situation" required>
-                <option value="" disabled selected>Select your situation</option>
-                <option value="trust">Trust Administration (TA)</option>
-                <option value="probate">Probate</option>
-                <option value="inherited">Inherited Property</option>
-                <option value="divorce">Divorce / Separation</option>
-                <option value="estate">General Estate Sale</option>
-                <option value="other">Other / Not Sure</option>
+                <option value="" disabled selected>Select</option>
+                <option value="inherited">Someone passed away and left real estate</option>
+                <option value="divorce">Divorce or separation</option>
+                <option value="other">Something else / not sure yet</option>
               </select>
             </div>
             <div class="form-group">
@@ -1011,11 +993,12 @@
                 <option value="figuring">Still figuring it out</option>
               </select>
             </div>
-            <button type="button" id="step2-next-btn" class="btn-submit">See My Recommendation →</button>
+            <button type="button" id="step2-next-btn" class="btn-submit">See My Recommendation First →</button>
+            <button type="button" id="step2-skip-btn" style="background:none;border:none;font-size:0.78rem;color:var(--sage);text-decoration:underline;cursor:pointer;display:block;text-align:center;width:100%;margin-top:0.75rem;">Skip ahead — just connect me with a specialist</button>
             <button type="button" id="back-btn" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
           </div>
 
-          <!-- STEP 3: Decision Engine questions (only for trust/probate/inherited/estate) -->
+          <!-- STEP 3: Decision Engine questions (inherited/death-related property only) -->
           <div id="step-3" style="display:none;">
             <h2 class="form-title">A few more details<br>for your <em>recommendation</em></h2>
             <p class="form-subtitle">This determines your likely legal path, not just who to call.</p>
@@ -1048,24 +1031,30 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="heir-agreement">Are all heirs or beneficiaries in agreement about what to do?</label>
+              <label for="heir-agreement">Is anyone else involved in this decision?</label>
               <select id="heir-agreement" required>
                 <option value="" disabled selected>Select</option>
-                <option value="just-me">Just me</option>
-                <option value="agree">Yes, we agree</option>
-                <option value="disagree">No, we disagree</option>
-                <option value="not-sure">Not sure yet</option>
+                <option value="just-me">No, it's just me</option>
+                <option value="agree">Yes, and we're aligned</option>
+                <option value="disagree">Yes, and we disagree</option>
+                <option value="not-sure">Yes, but we haven't discussed it yet</option>
               </select>
             </div>
             <button type="button" id="step3-next-btn" class="btn-submit">See My Recommendation →</button>
             <button type="button" id="back-btn-3" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
           </div>
 
-          <!-- STEP 4: Recommendation results + final contact submit -->
+          <!-- STEP 4: Recommendation results + email option + specialist connect -->
           <div id="step-4" style="display:none;">
             <h2 class="form-title">Your <em>recommendation</em></h2>
             <div id="recommendation-box" style="background:var(--warm-white);border:1px solid var(--border);border-radius:4px;padding:1.1rem 1.25rem;margin-bottom:1.25rem;font-size:0.85rem;line-height:1.7;color:var(--stone);"></div>
             <p class="form-privacy" style="margin-bottom:1.25rem;">This is general information based on what you've shared, not legal advice for your specific situation.</p>
+            <div class="form-group">
+              <label for="rec-email">Email (to send you this recommendation)</label>
+              <input type="email" id="rec-email" placeholder="jane@example.com" />
+            </div>
+            <button type="button" id="email-rec-btn" style="width:100%;padding:0.9rem;background:none;border:1px solid var(--border);color:var(--stone);border-radius:2px;font-family:var(--sans);font-size:0.78rem;font-weight:500;letter-spacing:0.08em;cursor:pointer;margin-top:0.25rem;">Email Me This Recommendation →</button>
+            <div style="text-align:center;font-size:0.7rem;color:var(--stone);opacity:0.6;margin:1.25rem 0;text-transform:uppercase;letter-spacing:0.1em;">or</div>
             <div class="form-group">
               <label for="heard-about">How did you hear about us?</label>
               <select id="heard-about">
@@ -1082,6 +1071,7 @@
             <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
             <button type="button" id="back-btn-4" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
           </div>
+          </div>
 
           <div class="success-state" id="success-state">
           <div class="success-icon">
@@ -1089,8 +1079,8 @@
               <path d="M4 11l5 5L18 5" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="success-title">You're all set.</h3>
-          <p class="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours. They handle situations like yours every day and will guide you through the process clearly and effectively.</p>
+          <h3 class="success-title" id="success-title">You're all set.</h3>
+          <p class="success-text" id="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours. They handle situations like yours every day and will guide you through the process clearly and effectively.</p>
         </div>
       </div>
     </div>
@@ -1371,50 +1361,87 @@
     const nextBtn = document.getElementById('next-btn');
     const backBtn = document.getElementById('back-btn');
     const step2NextBtn = document.getElementById('step2-next-btn');
+    const step2SkipBtn = document.getElementById('step2-skip-btn');
     const backBtn3 = document.getElementById('back-btn-3');
     const step3NextBtn = document.getElementById('step3-next-btn');
     const backBtn4 = document.getElementById('back-btn-4');
     const submitBtn = document.getElementById('submit-btn');
+    const emailRecBtn = document.getElementById('email-rec-btn');
     const formState = document.getElementById('form-state');
     const successState = document.getElementById('success-state');
+    const progressDots = document.querySelectorAll('#progress-bar .progress-dot');
+    const FORM_ENDPOINT = 'https://formspree.io/f/mqeoppoo';
+
+    function setProgress(n) {
+      progressDots.forEach(d => d.style.background = parseInt(d.dataset.step, 10) <= n ? 'var(--sage)' : 'var(--border)');
+    }
+
+    function sendSilent(payload) {
+      // Fire-and-forget partial capture, so a name/phone isn't lost if the visitor abandons later steps.
+      try {
+        fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
+      } catch (e) { /* best-effort only */ }
+    }
 
     // Situations that get the full decision-engine question set. Divorce and
     // other/not-sure skip straight to a generic recommendation, since the
     // trust/probate/AB2016 logic below doesn't apply to them.
-    const DECISION_ENGINE_SITUATIONS = ['trust', 'probate', 'inherited', 'estate'];
+    const DECISION_ENGINE_SITUATIONS = ['inherited'];
 
     nextBtn.addEventListener('click', function() {
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
       const phone = document.getElementById('phone').value.trim();
       if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
+      sendSilent({
+        timestamp: new Date().toISOString(), status: 'partial_step1',
+        name: fname + ' ' + lname, phone,
+        source: new URLSearchParams(window.location.search).get('src') || 'direct'
+      });
       step1.style.display = 'none';
       step2.style.display = 'block';
+      setProgress(2);
     });
 
     backBtn.addEventListener('click', function() {
       step2.style.display = 'none';
       step1.style.display = 'block';
+      setProgress(1);
     });
 
+    function getStep2Basics() {
+      return {
+        city: document.getElementById('city').value.trim(),
+        situation: document.getElementById('situation').value,
+        role: document.getElementById('role').value
+      };
+    }
+
     step2NextBtn.addEventListener('click', function() {
-      const city = document.getElementById('city').value.trim();
-      const situation = document.getElementById('situation').value;
-      const role = document.getElementById('role').value;
+      const { city, situation, role } = getStep2Basics();
       if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
       step2.style.display = 'none';
       if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
         step3.style.display = 'block';
+        setProgress(3);
       } else {
         // Divorce / other: skip decision questions, show a generic (non-legal-path) recommendation.
         renderRecommendation(buildGenericRecommendation(situation));
         step4.style.display = 'block';
+        setProgress(4);
       }
+    });
+
+    step2SkipBtn.addEventListener('click', function() {
+      const { city, situation, role } = getStep2Basics();
+      if (!city || !situation || !role) { alert('Please fill in all fields first, then we can connect you directly.'); return; }
+      submitFinal({ path: 'quick_referral' });
     });
 
     backBtn3.addEventListener('click', function() {
       step3.style.display = 'none';
       step2.style.display = 'block';
+      setProgress(2);
     });
 
     step3NextBtn.addEventListener('click', function() {
@@ -1426,30 +1453,39 @@
         alert('Please answer all four questions.');
         return;
       }
-      const situation = document.getElementById('situation').value;
       const timeline = document.getElementById('timeline').value;
-      const rec = buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline });
+      const rec = buildRecommendation({ trustStatus, primaryResidence, propertyValue, heirAgreement, timeline });
       renderRecommendation(rec);
+      sendSilent(Object.assign(
+        { timestamp: new Date().toISOString(), status: 'partial_recommendation_viewed' },
+        getStep2Basics(),
+        { trust_status: trustStatus, primary_residence: primaryResidence, property_value: propertyValue, heir_agreement: heirAgreement,
+          recommendation_key: rec.key, recommendation_text: rec.text,
+          source: new URLSearchParams(window.location.search).get('src') || 'direct' }
+      ));
       step3.style.display = 'none';
       step4.style.display = 'block';
+      setProgress(4);
     });
 
     backBtn4.addEventListener('click', function() {
-      const situation = document.getElementById('situation').value;
+      const { situation } = getStep2Basics();
       step4.style.display = 'none';
       if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
         step3.style.display = 'block';
+        setProgress(3);
       } else {
         step2.style.display = 'block';
+        setProgress(2);
       }
     });
 
     // --- Recommendation engine: deterministic, rule-based (not AI-generated). ---
     // Legal-adjacent output needs to be auditable and explainable, not a black box.
-    function buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline }) {
+    function buildRecommendation({ trustStatus, primaryResidence, propertyValue, heirAgreement, timeline }) {
       let legalKey, legalText;
 
-      if (trustStatus === 'yes' || situation === 'trust') {
+      if (trustStatus === 'yes') {
         legalKey = 'trust_admin';
         legalText = "Based on what you've shared, this sounds like Trust Administration rather than probate. As successor trustee, you can typically move forward with selling once you have your Certification of Trust, without needing probate court involvement.";
       } else if (primaryResidence === 'yes' && propertyValue === 'under750') {
@@ -1477,7 +1513,7 @@
       let text = legalText + ' ' + dispositionText;
       if (heirAgreement === 'disagree') {
         key = 'family_disagreement_' + legalKey;
-        text = "Before anything else: situations where heirs disagree usually benefit from a neutral third party, such as a mediator or attorney, to get everyone aligned before any property decisions are made. " + text;
+        text = "Before anything else: situations where the people involved disagree usually benefit from a neutral third party, such as a mediator or attorney, to get everyone aligned before any property decisions are made. " + text;
       }
       return { key, text };
     }
@@ -1501,44 +1537,61 @@
       document.getElementById('step-4').dataset.recommendationText = rec.text;
     }
 
-    submitBtn.addEventListener('click', async function() {
+    function collectFullPayload(extra) {
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
       const phone = document.getElementById('phone').value.trim();
-      const city = document.getElementById('city').value.trim();
-      const situation = document.getElementById('situation').value;
-      const role = document.getElementById('role').value;
+      const { city, situation, role } = getStep2Basics();
       const timeline = document.getElementById('timeline').value;
-      submitBtn.textContent = 'Connecting...';
-      submitBtn.disabled = true;
-      const needType = document.getElementById('need-type') ? document.getElementById('need-type').value : '';
-      const heardAbout = document.getElementById('heard-about').value || 'not_specified';
-      const recommendationKey = step4.dataset.recommendationKey || '';
-      const recommendationText = step4.dataset.recommendationText || '';
-      // Decision-engine fields are only present when Step 3 was shown.
+      const heardAbout = document.getElementById('heard-about') ? (document.getElementById('heard-about').value || 'not_specified') : 'not_specified';
       const trustStatus = document.getElementById('trust-status') ? document.getElementById('trust-status').value : '';
       const primaryResidence = document.getElementById('primary-residence') ? document.getElementById('primary-residence').value : '';
       const propertyValue = document.getElementById('property-value') ? document.getElementById('property-value').value : '';
       const heirAgreement = document.getElementById('heir-agreement') ? document.getElementById('heir-agreement').value : '';
-      const payload = {
+      const step4El = document.getElementById('step-4');
+      return Object.assign({
         timestamp: new Date().toISOString(),
+        status: 'complete',
         name: fname + ' ' + lname,
-        phone, city, situation, role, need_type: needType,
+        phone, city, situation, role,
         timeline: timeline || 'Not specified',
         trust_status: trustStatus, primary_residence: primaryResidence,
         property_value: propertyValue, heir_agreement: heirAgreement,
-        recommendation_key: recommendationKey, recommendation_text: recommendationText,
+        recommendation_key: step4El.dataset.recommendationKey || '',
+        recommendation_text: step4El.dataset.recommendationText || '',
         self_reported_source: heardAbout,
         source: new URLSearchParams(window.location.search).get('src') || 'direct'
-      };
+      }, extra || {});
+    }
+
+    async function submitFinal(extra) {
+      const payload = collectFullPayload(extra);
       try {
-        await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
-        formState.style.display = 'none';
-        successState.style.display = 'block';
-      } catch(err) {
-        formState.style.display = 'none';
-        successState.style.display = 'block';
-      }
+        await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
+      } catch (err) { /* fail open, still show success per existing site pattern */ }
+      formState.style.display = 'none';
+      successState.style.display = 'block';
+    }
+
+    emailRecBtn.addEventListener('click', async function() {
+      const email = document.getElementById('rec-email').value.trim();
+      if (!email) { alert('Please enter an email address.'); return; }
+      const btn = this;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      await submitFinal({ path: 'email_recommendation', email });
+      document.getElementById('success-title').textContent = 'On its way.';
+      document.getElementById('success-text').textContent = "We've sent your recommendation to " + email + ". Check your inbox in the next few minutes.";
+    });
+
+    submitBtn.addEventListener('click', async function() {
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if (!fname || !lname || !phone) { alert('Please fill in your name and phone number.'); return; }
+      submitBtn.textContent = 'Connecting...';
+      submitBtn.disabled = true;
+      await submitFinal({ path: 'connect_specialist' });
     });
   </script>
 

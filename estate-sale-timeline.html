@@ -431,38 +431,12 @@
 
   <aside class="sidebar">
     <div class="form-card" id="connect">
-      <div id="form-state">
-      <h2 class="form-title">Connect with a<br>specialist</h2>
-      <p class="form-subtitle">Free, never affects what you pay your agent.</p>
-      <div class="form-group">
-        <label for="need-type">What best describes your situation?</label>
-        <select id="need-type">
-          <option value="" disabled selected>Select</option>
-          <option value="sell-property">I need to sell inherited, trust, or probate property</option>
-          <option value="trustee">I'm a trustee managing a trust</option>
-          <option value="executor">I'm an executor of an estate</option>
-          <option value="legal-help">I need legal help with trust or probate</option>
-          <option value="not-sure">Not sure yet</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>First</label><input type="text" id="fname" placeholder="Jane" /></div>
-        <div class="form-group"><label>Last</label><input type="text" id="lname" placeholder="Smith" /></div>
-      </div>
-      <div class="form-group"><label>Phone</label><input type="tel" id="phone" placeholder="(555) 000-0000" /></div>
-      <div class="form-group"><label>Property City</label><input type="text" id="city" placeholder="Enter city" /></div>
-      <button class="btn-submit" id="submit-btn" onclick="submitSidebarForm()">Connect Me →</button>
-      <p class="form-privacy">🔒 Not a law firm. Submitting does not create an attorney-client relationship.</p>
-    </div>
-    <div class="success-state" id="success-state">
-      <div class="success-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#5c6b52" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3 class="success-title">You're all set.</h3>
-      <p class="success-text">A specialist will call you within hours.</p>
-    </div>
-        <h3 class="success-title">You're all set.</h3>
-        <p class="success-text">A specialist will call you within a few hours and help you move forward efficiently.</p>
-      </div>
-    </div>
+    <h2 class="form-title">Connect with a<br>specialist</h2>
+    <p class="form-subtitle">Free, never affects what you pay your agent.</p>
+    <p class="form-subtitle" style="margin-bottom:1.5rem;">Answer a few quick questions and get a personalized recommendation on your likely legal path, before you give us any contact info.</p>
+    <a href="/property-transition-assessment?src=estate-sale-timeline-sidebar" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Get My Recommendation →</a>
+    <p class="form-privacy">🔒 Not a law firm. Submitting does not create an attorney-client relationship.</p>
+  </div>
     <div class="sidebar-links">
       <div class="sidebar-links-title">Related Guides</div>
       <a href="/probate-real-estate-california" class="sidebar-link">→ How Probate Real Estate Works</a>
@@ -482,26 +456,6 @@
 
 <script>
   window.addEventListener('scroll', () => { document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(26,26,24,0.08)' : 'none'; });
-  const form = document.getElementById('lead-form');
-  const formState = document.getElementById('form-state');
-  const successState = document.getElementById('success-state');
-  const submitBtn = document.getElementById('submit-btn');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const city = document.getElementById('city').value.trim();
-    const situation = document.getElementById('situation').value;
-    const role = document.getElementById('role').value;
-    if (!fname || !lname || !phone || !city || !situation || !role) { alert('Please fill in all required fields.'); return; }
-    submitBtn.textContent = 'Connecting...'; submitBtn.disabled = true;
-    const payload = { timestamp: new Date().toISOString(), name: fname + ' ' + lname, phone, city, situation, role, source: 'estate-sale-timeline' };
-    try {
-      await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
-      formState.style.display = 'none'; successState.style.display = 'block';
-    } catch(err) { formState.style.display = 'none'; successState.style.display = 'block'; }
-  });
 </script>
 </body>
 </html>

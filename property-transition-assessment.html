@@ -103,7 +103,7 @@
 <div class="page-wrap">
   <div class="page-eyebrow">Free · Takes About 2 Minutes</div>
   <h1>Get your personalized <em>next step</em></h1>
-  <p class="page-sub">Answer a few questions about your situation. We'll tell you what's likely true before we ask for anything else.</p>
+  <p class="page-sub">Answer a few questions about your situation and get a personalized recommendation right away.</p>
 
   <div class="card">
     <div class="progress" id="progress-bar">
@@ -115,7 +115,7 @@
     <!-- STEP 1: Situation basics -->
     <div id="step-1">
       <h2 class="form-title">What's going <em>on?</em></h2>
-      <p class="form-subtitle">This helps us ask the right follow-up questions. No commitment, just a starting point.</p>
+      <p class="form-subtitle">This helps us ask the right follow-up questions and match you with the right specialist.</p>
       <div class="form-group">
         <label for="city">Property City</label>
         <input type="text" id="city" placeholder="Enter city" required />
@@ -357,7 +357,7 @@
     const city = document.getElementById('city').value.trim();
     const situation = document.getElementById('situation').value;
     const role = document.getElementById('role').value;
-    if (!city || !situation || !role) { alert('Please fill in all fields first, then we can connect you directly.'); return; }
+    if (!city || !situation || !role) { alert('Please fill in your city, situation, and role first.'); return; }
     hideAllSteps();
     stepQuick.style.display = 'block';
     setProgress(3);

@@ -1081,6 +1081,7 @@
           </div>
           <h3 class="success-title" id="success-title">You're all set.</h3>
           <p class="success-text" id="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours. They handle situations like yours every day and will guide you through the process clearly and effectively.</p>
+          <button type="button" id="want-more-detail-btn" style="background:none;border:none;font-size:0.78rem;color:var(--sage);text-decoration:underline;cursor:pointer;display:block;text-align:center;width:100%;margin-top:1.25rem;">Want a more detailed recommendation too? Get one →</button>
         </div>
       </div>
     </div>
@@ -1434,7 +1435,9 @@
 
     step2SkipBtn.addEventListener('click', function() {
       const { city, situation, role } = getStep2Basics();
-      if (!city || !situation || !role) { alert('Please fill in all fields first, then we can connect you directly.'); return; }
+      if (!city || !situation || !role) { alert('Please fill in your city, situation, and role first.'); return; }
+      const confirmed = confirm('Skip the recommendation and connect you with a specialist now?');
+      if (!confirmed) return;
       submitFinal({ path: 'quick_referral' });
     });
 
@@ -1592,6 +1595,22 @@
       submitBtn.textContent = 'Connecting...';
       submitBtn.disabled = true;
       await submitFinal({ path: 'connect_specialist' });
+    });
+
+    document.getElementById('want-more-detail-btn').addEventListener('click', function() {
+      // Re-enter the flow after a quick submission, using the situation/role already given.
+      // This is a genuine follow-up, so it submits again on completion with fuller detail.
+      successState.style.display = 'none';
+      formState.style.display = 'block';
+      const { situation } = getStep2Basics();
+      if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
+        step3.style.display = 'block';
+        setProgress(3);
+      } else {
+        renderRecommendation(buildGenericRecommendation(situation));
+        step4.style.display = 'block';
+        setProgress(4);
+      }
     });
   </script>
 

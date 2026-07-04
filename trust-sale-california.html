@@ -133,7 +133,7 @@
     .author-avatar { width: 3rem; height: 3rem; background: rgba(92,107,82,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--serif); font-size: 1.2rem; color: var(--sage); font-weight: 500; }
     .author-name { font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
     .author-bio { font-size: 0.78rem; color: var(--stone); font-weight: 300; line-height: 1.6; }
-    .sidebar { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .sidebar { position: sticky; top: 6rem; max-height: calc(100vh - 8rem); overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem; }
     .form-card { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 2rem; box-shadow: 0 4px 40px rgba(26,26,24,0.07); position: relative; }
     .form-card::before { content: ''; position: absolute; top: 0; left: 2rem; right: 2rem; height: 3px; background: linear-gradient(90deg, var(--sage), var(--gold-light)); border-radius: 0 0 2px 2px; }
     .form-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.2; }
@@ -355,7 +355,7 @@
     <div class="form-card" id="connect">
     <h2 class="form-title">Connect with a<br>specialist</h2>
     <p class="form-subtitle">Free, never affects what you pay your agent.</p>
-    <p class="form-subtitle" style="margin-bottom:1.5rem;">Answer a few quick questions and get a personalized recommendation on your likely legal path, before you give us any contact info.</p>
+    <p class="form-subtitle">Tell us a bit about your situation and we'll match you with the right specialist and a personalized recommendation.</p>
     <a href="/property-transition-assessment?src=trust-sale-guide-sidebar" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Get My Recommendation →</a>
     <p class="form-privacy">🔒 Not a law firm. Submitting does not create an attorney-client relationship.</p>
   </div>

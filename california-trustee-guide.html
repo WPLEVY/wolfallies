@@ -726,10 +726,7 @@
     if (!name || !email) { alert('Please enter your name and email.'); return; }
     const payload = { timestamp: new Date().toISOString(), name, email, source: 'california-trustee-guide-sidebar', type: 'email-capture' };
     try {
-      await Promise.all([
-        fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
-        fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-      ]);
+      await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
     } catch(e) {}
     document.getElementById('ec-success').style.display = 'block';
     document.getElementById('ec-name').style.display = 'none';
@@ -753,10 +750,7 @@
     submitBtn.textContent = 'Connecting...'; submitBtn.disabled = true;
     const payload = { timestamp: new Date().toISOString(), name: fname + ' ' + lname, phone, city, situation, role: 'trustee', timeline: timeline || 'Not specified', source: 'california-trustee-guide' };
     try {
-      await Promise.all([
-        fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
-        fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-      ]);
+      await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
       formState.style.display = 'none'; successState.style.display = 'block';
     } catch(err) { formState.style.display = 'none'; successState.style.display = 'block'; }
   });

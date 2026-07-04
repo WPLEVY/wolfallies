@@ -108,10 +108,7 @@
     const btn = document.getElementById('faq-submit-btn');
     if (btn) { btn.textContent = 'Connecting...'; btn.disabled = true; }
     const payload = { timestamp: new Date().toISOString(), name: fname+' '+lname, phone, city, need_type: needType, source: 'faq-sidebar' };
-    Promise.all([
-      fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}),
-      fetch('https://formspree.io/f/mqeoppoo',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
-    ]).catch(()=>{}).finally(()=>{
+    fetch('https://formspree.io/f/mqeoppoo',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)}).catch(()=>{}).finally(()=>{
       const fs = document.getElementById('form-state');
       const ss = document.getElementById('success-state');
       if(fs) fs.style.display='none';
@@ -618,10 +615,7 @@
     submitBtn.textContent = 'Connecting...'; submitBtn.disabled = true;
     const payload = { timestamp: new Date().toISOString(), name: fname + ' ' + lname, phone, city, situation, role, timeline: timeline || 'Not specified', source: 'faq' };
     try {
-      await Promise.all([
-        fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
-        fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-      ]);
+      await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
       formState.style.display = 'none'; successState.style.display = 'block';
     } catch(err) { formState.style.display = 'none'; successState.style.display = 'block'; }
   });

@@ -1011,10 +1011,78 @@
                 <option value="figuring">Still figuring it out</option>
               </select>
             </div>
-            <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
+            <button type="button" id="step2-next-btn" class="btn-submit">See My Recommendation →</button>
             <button type="button" id="back-btn" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
           </div>
-        
+
+          <!-- STEP 3: Decision Engine questions (only for trust/probate/inherited/estate) -->
+          <div id="step-3" style="display:none;">
+            <h2 class="form-title">A few more details<br>for your <em>recommendation</em></h2>
+            <p class="form-subtitle">This determines your likely legal path, not just who to call.</p>
+            <div class="form-group">
+              <label for="trust-status">Is the property held in a trust?</label>
+              <select id="trust-status" required>
+                <option value="" disabled selected>Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="primary-residence">Was this the deceased's primary residence?</label>
+              <select id="primary-residence" required>
+                <option value="" disabled selected>Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="property-value">Roughly what is the property worth?</label>
+              <select id="property-value" required>
+                <option value="" disabled selected>Select</option>
+                <option value="under750">Under $750,000</option>
+                <option value="750to1.5m">$750,000 – $1.5M</option>
+                <option value="over1.5m">Over $1.5M</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="heir-agreement">Are all heirs or beneficiaries in agreement about what to do?</label>
+              <select id="heir-agreement" required>
+                <option value="" disabled selected>Select</option>
+                <option value="just-me">Just me</option>
+                <option value="agree">Yes, we agree</option>
+                <option value="disagree">No, we disagree</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <button type="button" id="step3-next-btn" class="btn-submit">See My Recommendation →</button>
+            <button type="button" id="back-btn-3" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
+          </div>
+
+          <!-- STEP 4: Recommendation results + final contact submit -->
+          <div id="step-4" style="display:none;">
+            <h2 class="form-title">Your <em>recommendation</em></h2>
+            <div id="recommendation-box" style="background:var(--warm-white);border:1px solid var(--border);border-radius:4px;padding:1.1rem 1.25rem;margin-bottom:1.25rem;font-size:0.85rem;line-height:1.7;color:var(--stone);"></div>
+            <p class="form-privacy" style="margin-bottom:1.25rem;">This is general information based on what you've shared, not legal advice for your specific situation.</p>
+            <div class="form-group">
+              <label for="heard-about">How did you hear about us?</label>
+              <select id="heard-about">
+                <option value="" disabled selected>Select (optional)</option>
+                <option value="google_search">Google Search</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="claude">Claude</option>
+                <option value="perplexity">Perplexity</option>
+                <option value="gemini">Gemini</option>
+                <option value="friend_or_attorney">Friend or Attorney</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <button type="button" id="submit-btn" class="btn-submit">Connect Me With a Specialist →</button>
+            <button type="button" id="back-btn-4" style="background:none;border:none;font-size:0.78rem;color:var(--stone);cursor:pointer;margin-top:0.5rem;display:block;text-align:center;width:100%;padding:0.4rem;">← Back</button>
+          </div>
+
           <div class="success-state" id="success-state">
           <div class="success-icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -1295,14 +1363,25 @@
     }
   }
 
-  // Two-step form logic
+  // Four-step form logic: contact -> situation basics -> decision questions -> recommendation + submit
     const step1 = document.getElementById('step-1');
     const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+    const step4 = document.getElementById('step-4');
     const nextBtn = document.getElementById('next-btn');
     const backBtn = document.getElementById('back-btn');
+    const step2NextBtn = document.getElementById('step2-next-btn');
+    const backBtn3 = document.getElementById('back-btn-3');
+    const step3NextBtn = document.getElementById('step3-next-btn');
+    const backBtn4 = document.getElementById('back-btn-4');
     const submitBtn = document.getElementById('submit-btn');
     const formState = document.getElementById('form-state');
     const successState = document.getElementById('success-state');
+
+    // Situations that get the full decision-engine question set. Divorce and
+    // other/not-sure skip straight to a generic recommendation, since the
+    // trust/probate/AB2016 logic below doesn't apply to them.
+    const DECISION_ENGINE_SITUATIONS = ['trust', 'probate', 'inherited', 'estate'];
 
     nextBtn.addEventListener('click', function() {
       const fname = document.getElementById('fname').value.trim();
@@ -1318,6 +1397,110 @@
       step1.style.display = 'block';
     });
 
+    step2NextBtn.addEventListener('click', function() {
+      const city = document.getElementById('city').value.trim();
+      const situation = document.getElementById('situation').value;
+      const role = document.getElementById('role').value;
+      if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
+      step2.style.display = 'none';
+      if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
+        step3.style.display = 'block';
+      } else {
+        // Divorce / other: skip decision questions, show a generic (non-legal-path) recommendation.
+        renderRecommendation(buildGenericRecommendation(situation));
+        step4.style.display = 'block';
+      }
+    });
+
+    backBtn3.addEventListener('click', function() {
+      step3.style.display = 'none';
+      step2.style.display = 'block';
+    });
+
+    step3NextBtn.addEventListener('click', function() {
+      const trustStatus = document.getElementById('trust-status').value;
+      const primaryResidence = document.getElementById('primary-residence').value;
+      const propertyValue = document.getElementById('property-value').value;
+      const heirAgreement = document.getElementById('heir-agreement').value;
+      if (!trustStatus || !primaryResidence || !propertyValue || !heirAgreement) {
+        alert('Please answer all four questions.');
+        return;
+      }
+      const situation = document.getElementById('situation').value;
+      const timeline = document.getElementById('timeline').value;
+      const rec = buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline });
+      renderRecommendation(rec);
+      step3.style.display = 'none';
+      step4.style.display = 'block';
+    });
+
+    backBtn4.addEventListener('click', function() {
+      const situation = document.getElementById('situation').value;
+      step4.style.display = 'none';
+      if (DECISION_ENGINE_SITUATIONS.includes(situation)) {
+        step3.style.display = 'block';
+      } else {
+        step2.style.display = 'block';
+      }
+    });
+
+    // --- Recommendation engine: deterministic, rule-based (not AI-generated). ---
+    // Legal-adjacent output needs to be auditable and explainable, not a black box.
+    function buildRecommendation({ situation, trustStatus, primaryResidence, propertyValue, heirAgreement, timeline }) {
+      let legalKey, legalText;
+
+      if (trustStatus === 'yes' || situation === 'trust') {
+        legalKey = 'trust_admin';
+        legalText = "Based on what you've shared, this sounds like Trust Administration rather than probate. As successor trustee, you can typically move forward with selling once you have your Certification of Trust, without needing probate court involvement.";
+      } else if (primaryResidence === 'yes' && propertyValue === 'under750') {
+        legalKey = 'ab2016_eligible';
+        legalText = "Based on what you've shared, you likely qualify for California's simplified small estate process under AB 2016, since this was the decedent's primary residence valued at or under $750,000. This can help you avoid full probate court proceedings.";
+      } else if (primaryResidence === 'yes' && (propertyValue === '750to1.5m' || propertyValue === 'over1.5m')) {
+        legalKey = 'full_probate_primary';
+        legalText = "Based on what you've shared, full probate is likely required, since the property's value is above California's $750,000 threshold for the simplified process. A probate attorney should be your next call before listing the property.";
+      } else if (primaryResidence === 'no') {
+        legalKey = 'full_probate_non_primary';
+        legalText = "Because this wasn't the decedent's primary residence, it likely doesn't qualify for California's simplified small-estate process regardless of value. Full probate, or a personal property affidavit for smaller estates, may apply. An attorney can confirm which path fits your situation.";
+      } else {
+        legalKey = 'uncertain';
+        legalText = "Based on what you've shared, we can't be fully certain yet whether this requires full probate or qualifies for a simplified process. An attorney can confirm this quickly with a few more details.";
+      }
+
+      let dispositionText;
+      if (timeline === 'asap') {
+        dispositionText = "Given your timeline, it's worth comparing a traditional listing against an as-is or cash sale side by side, since speed and maximum price often involve different tradeoffs.";
+      } else {
+        dispositionText = "Since there's no urgent deadline, listing with an agent experienced in trust and probate sales typically nets the highest price.";
+      }
+
+      let key = legalKey;
+      let text = legalText + ' ' + dispositionText;
+      if (heirAgreement === 'disagree') {
+        key = 'family_disagreement_' + legalKey;
+        text = "Before anything else: situations where heirs disagree usually benefit from a neutral third party, such as a mediator or attorney, to get everyone aligned before any property decisions are made. " + text;
+      }
+      return { key, text };
+    }
+
+    function buildGenericRecommendation(situation) {
+      if (situation === 'divorce') {
+        return {
+          key: 'divorce_generic',
+          text: "Divorce-related property sales have their own timing and disclosure considerations separate from trust or probate rules. We'll match you with a specialist experienced in divorce-related real estate for your situation."
+        };
+      }
+      return {
+        key: 'general_generic',
+        text: "We'll match you with a specialist who can help clarify the right next step for your specific situation."
+      };
+    }
+
+    function renderRecommendation(rec) {
+      document.getElementById('recommendation-box').textContent = rec.text;
+      document.getElementById('step-4').dataset.recommendationKey = rec.key;
+      document.getElementById('step-4').dataset.recommendationText = rec.text;
+    }
+
     submitBtn.addEventListener('click', async function() {
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
@@ -1326,22 +1509,30 @@
       const situation = document.getElementById('situation').value;
       const role = document.getElementById('role').value;
       const timeline = document.getElementById('timeline').value;
-      if (!city || !situation || !role) { alert('Please fill in all fields.'); return; }
       submitBtn.textContent = 'Connecting...';
       submitBtn.disabled = true;
       const needType = document.getElementById('need-type') ? document.getElementById('need-type').value : '';
-    const payload = {
+      const heardAbout = document.getElementById('heard-about').value || 'not_specified';
+      const recommendationKey = step4.dataset.recommendationKey || '';
+      const recommendationText = step4.dataset.recommendationText || '';
+      // Decision-engine fields are only present when Step 3 was shown.
+      const trustStatus = document.getElementById('trust-status') ? document.getElementById('trust-status').value : '';
+      const primaryResidence = document.getElementById('primary-residence') ? document.getElementById('primary-residence').value : '';
+      const propertyValue = document.getElementById('property-value') ? document.getElementById('property-value').value : '';
+      const heirAgreement = document.getElementById('heir-agreement') ? document.getElementById('heir-agreement').value : '';
+      const payload = {
         timestamp: new Date().toISOString(),
         name: fname + ' ' + lname,
         phone, city, situation, role, need_type: needType,
         timeline: timeline || 'Not specified',
+        trust_status: trustStatus, primary_residence: primaryResidence,
+        property_value: propertyValue, heir_agreement: heirAgreement,
+        recommendation_key: recommendationKey, recommendation_text: recommendationText,
+        self_reported_source: heardAbout,
         source: new URLSearchParams(window.location.search).get('src') || 'direct'
       };
       try {
-        await Promise.all([
-          fetch('https://hook.us2.make.com/4wfpe41xw0bw64cwzihle8t8umizj9i3', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }),
-          fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-        ]);
+        await fetch('https://formspree.io/f/mqeoppoo', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
         formState.style.display = 'none';
         successState.style.display = 'block';
       } catch(err) {

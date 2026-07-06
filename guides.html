@@ -114,11 +114,16 @@
     .footer-text{font-size:0.7rem;color:var(--stone);text-align:center;line-height:1.6}
     .footer-disc{font-size:0.68rem;color:rgba(61,61,56,0.5);max-width:240px;text-align:right;line-height:1.55;text-wrap:balance}
     @media(max-width:900px){nav{padding:1rem 1.5rem}.nav-tagline{display:none}.page-hero{padding:5rem 0 3rem}.hero-inner,.content{padding:0 1.5rem}.guide-grid,.guide-grid.three{grid-template-columns:1fr}.city-grid{grid-template-columns:repeat(2,1fr)}footer{padding:1.75rem 1.5rem;flex-direction:column;text-align:center}.footer-disc{text-align:center;max-width:100%}}
-  </style>
+      .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+</style>
 </head>
 <body>
 <nav>
   <a href="/" class="nav-logo">Wolf <span>Allies</span><span class="nav-tagline">Estate &amp; Trust Property Specialists</span></a>
+  <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link">FAQ</a></div>
   <a href="/#intake" class="nav-cta">Get Connected</a>
 </nav>
 
@@ -156,6 +161,18 @@
       <div class="card-desc">First steps, trust vs. probate, stepped-up basis, Prop 19, sale process.</div>
       <div class="card-arrow">Read →</div>
     </a>
+    <a href="/realtor-vs-ibuyer-california" class="guide-card">
+      <div class="card-tag">Comparison</div>
+      <div class="card-title">Realtor vs. iBuyer: Selling an Inherited House</div>
+      <div class="card-desc">Speed, net proceeds, fiduciary duty, and when each option actually makes sense.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/probate-attorney-vs-real-estate-attorney-california" class="guide-card">
+      <div class="card-tag">Comparison</div>
+      <div class="card-title">Probate Attorney vs. Real Estate Attorney</div>
+      <div class="card-desc">Which one you actually need, and why California rarely requires the second.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
     <a href="/trust-sale-california" class="guide-card">
       <div class="card-tag">Complete Guide</div>
       <div class="card-title">Selling a Home Through a Living Trust in California</div>
@@ -184,6 +201,54 @@
       <div class="card-tag">Resource Directory</div>
       <div class="card-title">California Probate &amp; Estate Resources</div>
       <div class="card-desc">Official court websites, forms, county recorders, tax authorities, all in one place.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/california-inherited-property" class="guide-card">
+      <div class="card-tag">Complete Guide</div>
+      <div class="card-title">California Inherited Property: The Complete Guide</div>
+      <div class="card-desc">Trust property vs. probate property, taxes, timelines, and your options, all in one place.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/house-in-trust-after-death-california" class="guide-card">
+      <div class="card-tag">Trust Administration</div>
+      <div class="card-title">What Happens to a House in a Trust After Death?</div>
+      <div class="card-desc">Who takes control, what authority the successor trustee has, and when the property can be sold.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/should-i-sell-inherited-house-as-is-california" class="guide-card">
+      <div class="card-tag">Selling Strategy</div>
+      <div class="card-title">Should I Sell My Inherited House As-Is?</div>
+      <div class="card-desc">A framework based on condition, fiduciary duty, timeline, and net proceeds.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/investor-offer-vs-realtor-listing-inherited-property" class="guide-card">
+      <div class="card-tag">Comparison</div>
+      <div class="card-title">Investor Offer vs. Realtor Listing</div>
+      <div class="card-desc">An honest side-by-side for an inherited California property, not a sales pitch either way.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/keep-vs-sell-inherited-california-home" class="guide-card">
+      <div class="card-tag">Decision Framework</div>
+      <div class="card-title">Keep vs. Sell an Inherited California Home</div>
+      <div class="card-desc">Tax math, carrying costs, and Prop 19 impact behind one of the biggest decisions you'll make.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/sibling-disputes-inherited-property-california" class="guide-card">
+      <div class="card-tag">Family Disputes</div>
+      <div class="card-title">When Siblings Disagree About an Inherited House</div>
+      <div class="card-desc">Buyouts, mediation, and partition actions, and how to navigate disagreement well.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-to-sell-inherited-home-quickly-california" class="guide-card">
+      <div class="card-tag">Selling Strategy</div>
+      <div class="card-title">How to Sell an Inherited Home Quickly</div>
+      <div class="card-desc">A practical, non-sales-pitch guide to moving fast without leaving money on the table.</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/prop-19-calculator" class="guide-card">
+      <div class="card-tag">Free Tool</div>
+      <div class="card-title">Proposition 19 Calculator</div>
+      <div class="card-desc">Estimate whether, and by how much, your inherited property will be reassessed.</div>
       <div class="card-arrow">Read →</div>
     </a>
   </div>
@@ -264,9 +329,194 @@
       <div class="card-title">What is the Overbid Process in California Probate?</div>
       <div class="card-arrow">Read →</div>
     </a>
+    <a href="/buying-out-siblings-inherited-house-california" class="guide-card">
+      <div class="card-title">How to Buy Out Siblings' Share of an Inherited California House</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/can-beneficiary-block-trust-sale-california" class="guide-card">
+      <div class="card-title">Can a Beneficiary Block a Trust Sale in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/can-beneficiary-buy-trust-property-california" class="guide-card">
+      <div class="card-title">Can a Beneficiary Buy Trust Property in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/can-executor-sell-house-before-probate-complete-california" class="guide-card">
+      <div class="card-title">Can an Executor Sell a House Before Probate is Complete?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/can-trustee-be-removed-california" class="guide-card">
+      <div class="card-title">Can a Trustee Be Removed in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/can-trustee-sell-trust-property-to-himself-california" class="guide-card">
+      <div class="card-title">Can a Trustee Sell Trust Property to Himself?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/do-i-need-attorney-sell-trust-property-california" class="guide-card">
+      <div class="card-title">Do I Need an Attorney to Sell Trust Property?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/do-i-need-court-approval-to-sell-trust-property-california" class="guide-card">
+      <div class="card-title">Do I Need Court Approval to Sell Trust Property?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/executor-compensation-california" class="guide-card">
+      <div class="card-title">How Much is an Executor Paid in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/executor-sell-probate-house-without-court-confirmation-california" class="guide-card">
+      <div class="card-title">Can an Executor Sell Without Court Confirmation?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-do-buyouts-work-between-siblings-california" class="guide-card">
+      <div class="card-title">How Do Sibling Buyouts Work for Inherited Property?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-do-i-clean-out-inherited-house-california" class="guide-card">
+      <div class="card-title">How Do I Clean Out an Inherited House Before Selling?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-do-i-sell-moms-house-after-she-dies-california" class="guide-card">
+      <div class="card-title">How Do I Sell My Mom's House After She Dies?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-does-trust-sale-work-california" class="guide-card">
+      <div class="card-title">How Does a Trust Sale Work in California? Step by Step</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-long-does-probate-sale-take-california" class="guide-card">
+      <div class="card-title">How Long Does a Probate Sale Take in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-long-does-trust-sale-take-california" class="guide-card">
+      <div class="card-title">How Long Does a Trust Sale Take in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-much-does-trust-administration-cost-california" class="guide-card">
+      <div class="card-title">How Much Does Trust Administration Cost?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-much-does-trust-sale-realtor-cost-california" class="guide-card">
+      <div class="card-title">How Much Does a Trust Sale Realtor Cost?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-to-find-probate-real-estate-agent-california" class="guide-card">
+      <div class="card-title">How to Find a Probate Real Estate Agent</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-to-sell-trust-property-california" class="guide-card">
+      <div class="card-title">How to Successfully Sell a Trust Property</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/one-heir-wont-sell-california-inherited-house" class="guide-card">
+      <div class="card-title">When One Heir Won't Sell an Inherited House</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/parent-died-what-to-do-with-house" class="guide-card">
+      <div class="card-title">My Parent Just Died, What Do I Do With the House?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/partition-action-california-inherited-property" class="guide-card">
+      <div class="card-title">Partition Actions in California Inherited Real Estate</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/probate-referee-appraisal-california" class="guide-card">
+      <div class="card-title">What is a Probate Referee Appraisal?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/prop-19-before-and-after-inherited-property" class="guide-card">
+      <div class="card-title">Proposition 19 Before and After: What Changed</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/prop-19-selling-inherited-house-california" class="guide-card">
+      <div class="card-title">Proposition 19 and Selling an Inherited House</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/property-tax-reassessment-inherited-property-california" class="guide-card">
+      <div class="card-title">Property Tax Reassessment for Inherited Property</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/questions-to-ask-before-hiring-trust-sale-realtor" class="guide-card">
+      <div class="card-title">Questions to Ask Before Hiring a Trust Sale Realtor</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/sell-inherited-house-without-probate-california-2026" class="guide-card">
+      <div class="card-title">Can I Sell a House Without Probate in 2026?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/signs-its-time-to-sell-inherited-house-california" class="guide-card">
+      <div class="card-title">Signs It's Time to Sell an Inherited House</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/step-up-in-basis-trust-property-california" class="guide-card">
+      <div class="card-title">Step-Up in Basis for Trust Property, Complete Guide</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/trustee-compensation-california" class="guide-card">
+      <div class="card-title">How Much Can a Trustee Be Paid in California?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/trustee-sell-below-market-value-california" class="guide-card">
+      <div class="card-title">Can a Trustee Sell Property Below Market Value?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/trustee-vs-executor-california" class="guide-card">
+      <div class="card-title">Trustee vs. Executor: What's the Difference?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/vacant-property-risks-inherited-california" class="guide-card">
+      <div class="card-title">Risks of Leaving an Inherited Property Vacant</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-disclosures-required-trust-sale-california" class="guide-card">
+      <div class="card-title">What Disclosures Are Required for a Trust Sale?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-does-trust-sale-realtor-do-california" class="guide-card">
+      <div class="card-title">What Does a Trust Sale Realtor Actually Do?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-happens-property-not-in-trust-california" class="guide-card">
+      <div class="card-title">What Happens If Property Was Not Transferred Into the Trust?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-happens-sale-proceeds-trust-sale-california" class="guide-card">
+      <div class="card-title">What Happens to Sale Proceeds in a Trust Sale?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-is-certification-of-trust-california" class="guide-card">
+      <div class="card-title">What is a Certification of Trust, and When Do You Need One?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-is-trust-administration-real-estate-california" class="guide-card">
+      <div class="card-title">What is Trust Administration and How Does it Affect Real Estate?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-multiple-beneficiaries-inherit-house-california" class="guide-card">
+      <div class="card-title">What Happens When Multiple Beneficiaries Inherit a House?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/what-should-i-do-first-when-parent-dies-california" class="guide-card">
+      <div class="card-title">What Should I Do First When a Parent Dies?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/who-signs-listing-agreement-trust-sale-california" class="guide-card">
+      <div class="card-title">Who Signs the Listing Agreement in a Trust Sale?</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/why-trust-sales-fail-california" class="guide-card">
+      <div class="card-title">Why California Trust Sales Fail, and How to Avoid It</div>
+      <div class="card-arrow">Read →</div>
+    </a>
+    <a href="/how-wolf-allies-screens-agents" class="guide-card">
+      <div class="card-title">How Wolf Allies Screens Trust and Probate Agents</div>
+      <div class="card-arrow">Read →</div>
+    </a>
   </div>
 
   <h2>Southern California <em>Cities</em></h2>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Los Angeles County</h3>
   <div class="city-grid">
     <a href="/pasadena" class="city-link">Pasadena</a>
     <a href="/beverly-hills" class="city-link">Beverly Hills</a>
@@ -284,34 +534,88 @@
     <a href="/calabasas" class="city-link">Calabasas</a>
     <a href="/san-marino" class="city-link">San Marino</a>
     <a href="/arcadia" class="city-link">Arcadia</a>
-    <a href="/la-jolla" class="city-link">La Jolla</a>
-    <a href="/del-mar" class="city-link">Del Mar</a>
-    <a href="/rancho-santa-fe" class="city-link">Rancho Santa Fe</a>
-    <a href="/encinitas" class="city-link">Encinitas</a>
-    <a href="/chula-vista" class="city-link">Chula Vista</a>
-    <a href="/newport-beach" class="city-link">Newport Beach</a>
-    <a href="/laguna-beach" class="city-link">Laguna Beach</a>
-    <a href="/irvine" class="city-link">Irvine</a>
-    <a href="/huntington-beach" class="city-link">Huntington Beach</a>
     <a href="/long-beach" class="city-link">Long Beach</a>
     <a href="/rolling-hills" class="city-link">Rolling Hills</a>
     <a href="/palos-verdes" class="city-link">Palos Verdes</a>
     <a href="/hacienda-heights" class="city-link">Hacienda Heights</a>
     <a href="/rowland-heights" class="city-link">Rowland Heights</a>
   </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Orange County</h3>
+  <div class="city-grid">
+    <a href="/newport-beach" class="city-link">Newport Beach</a>
+    <a href="/laguna-beach" class="city-link">Laguna Beach</a>
+    <a href="/irvine" class="city-link">Irvine</a>
+    <a href="/huntington-beach" class="city-link">Huntington Beach</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">San Diego County</h3>
+  <div class="city-grid">
+    <a href="/la-jolla" class="city-link">La Jolla</a>
+    <a href="/del-mar" class="city-link">Del Mar</a>
+    <a href="/rancho-santa-fe" class="city-link">Rancho Santa Fe</a>
+    <a href="/encinitas" class="city-link">Encinitas</a>
+    <a href="/chula-vista" class="city-link">Chula Vista</a>
+  </div>
 
   <h2>Northern California <em>Cities</em></h2>
   <div class="city-grid">
     <a href="/san-francisco" class="city-link">San Francisco</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Marin County</h3>
+  <div class="city-grid">
     <a href="/marin-county" class="city-link">Marin County</a>
     <a href="/mill-valley" class="city-link">Mill Valley</a>
     <a href="/tiburon" class="city-link">Tiburon</a>
-    <a href="/los-altos" class="city-link">Los Altos</a>
+    <a href="/san-rafael" class="city-link">San Rafael</a>
+    <a href="/sausalito" class="city-link">Sausalito</a>
+    <a href="/novato" class="city-link">Novato</a>
+    <a href="/corte-madera" class="city-link">Corte Madera</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Santa Clara County</h3>
+  <div class="city-grid">
+    <a href="/santa-clara-county" class="city-link">Santa Clara County</a>
     <a href="/palo-alto" class="city-link">Palo Alto</a>
+    <a href="/los-altos" class="city-link">Los Altos</a>
+    <a href="/san-jose" class="city-link">San Jose</a>
+    <a href="/cupertino" class="city-link">Cupertino</a>
+    <a href="/mountain-view" class="city-link">Mountain View</a>
+    <a href="/los-gatos" class="city-link">Los Gatos</a>
+    <a href="/saratoga" class="city-link">Saratoga</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">San Mateo County</h3>
+  <div class="city-grid">
+    <a href="/san-mateo-county" class="city-link">San Mateo County</a>
+    <a href="/menlo-park" class="city-link">Menlo Park</a>
+    <a href="/redwood-city" class="city-link">Redwood City</a>
+    <a href="/atherton" class="city-link">Atherton</a>
+    <a href="/burlingame" class="city-link">Burlingame</a>
+    <a href="/half-moon-bay" class="city-link">Half Moon Bay</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Alameda County</h3>
+  <div class="city-grid">
+    <a href="/alameda-county" class="city-link">Alameda County</a>
     <a href="/piedmont" class="city-link">Piedmont</a>
     <a href="/berkeley" class="city-link">Berkeley</a>
+    <a href="/oakland" class="city-link">Oakland</a>
+    <a href="/fremont" class="city-link">Fremont</a>
+    <a href="/pleasanton" class="city-link">Pleasanton</a>
+    <a href="/dublin" class="city-link">Dublin</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Contra Costa County</h3>
+  <div class="city-grid">
+    <a href="/contra-costa-county" class="city-link">Contra Costa County</a>
     <a href="/walnut-creek" class="city-link">Walnut Creek</a>
+    <a href="/danville" class="city-link">Danville</a>
+    <a href="/lafayette" class="city-link">Lafayette</a>
+    <a href="/orinda" class="city-link">Orinda</a>
+  </div>
+  <h3 style="font-family:var(--sans);font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin:1.5rem 0 0.75rem;">Santa Cruz County</h3>
+  <div class="city-grid">
     <a href="/santa-cruz" class="city-link">Santa Cruz</a>
+    <a href="/soquel" class="city-link">Soquel</a>
+    <a href="/aptos" class="city-link">Aptos</a>
+    <a href="/capitola" class="city-link">Capitola</a>
+    <a href="/scotts-valley" class="city-link">Scotts Valley</a>
+    <a href="/watsonville" class="city-link">Watsonville</a>
   </div>
 
 </div>

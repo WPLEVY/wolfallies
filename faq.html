@@ -131,6 +131,12 @@
     .nav-tagline { font-family: var(--sans); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.7; padding-left: 0.75rem; border-left: 1px solid var(--border); }
     .nav-cta { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--sage); padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
     .nav-cta:hover { background: var(--ink); }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+
     .hero { max-width: 800px; margin: 0 auto; padding: 8rem 3rem 4rem; text-align: center; }
     .article-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
     h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.12; color: var(--ink); margin-bottom: 1.25rem; }
@@ -197,7 +203,7 @@
     .footer-disclaimer { font-size: 0.68rem; color: rgba(61,61,56,0.5); max-width: 260px; text-align: right; line-height: 1.5; 
       text-wrap: balance;
     }
-    @media (max-width: 900px) { nav { padding: 1rem 1.5rem; } .nav-tagline { display: none; } .hero { padding: 6rem 1.5rem 3rem; } .page-wrap { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; gap: 3rem; } .sidebar { position: static; } footer { padding: 1.75rem 1.5rem; flex-direction: column; text-align: center; } .footer-disclaimer { text-align: center; max-width: 100%; } .form-row { grid-template-columns: 1fr; } .faq-nav-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .nav-links { display: none !important; } nav { padding: 1rem 1.5rem; } .nav-tagline { display: none; } .hero { padding: 6rem 1.5rem 3rem; } .page-wrap { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; gap: 3rem; } .sidebar { position: static; } footer { padding: 1.75rem 1.5rem; flex-direction: column; text-align: center; } .footer-disclaimer { text-align: center; max-width: 100%; } .form-row { grid-template-columns: 1fr; } .faq-nav-grid { grid-template-columns: 1fr; } }
   </style>
 
   <script type="application/ld+json">
@@ -224,6 +230,7 @@
 <body>
 <nav>
   <a href="/" class="nav-logo">Wolf <span>Allies</span><span class="nav-tagline">Estate &amp; Trust Property Specialists</span></a>
+  <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link active">FAQ</a></div>
   <a href="#connect" class="nav-cta">Get Connected</a>
 </nav>
 
@@ -549,7 +556,7 @@
 
   <aside class="sidebar">
     <div class="form-card" id="connect">
-      <h2 class="form-title">Connect with aspecialist</h2>
+      <h2 class="form-title">Need a specialist?</h2>
       <p class="form-subtitle">Free, never affects what you pay your agent.</p>
       <p class="form-subtitle">Tell us a bit about your situation and we'll match you with the right specialist and a personalized recommendation.</p>
       <a href="/property-transition-assessment?src=faq-sidebar" style="display:block;text-align:center;text-decoration:none;width:100%;padding:0.85rem;background:var(--sage);color:white;border:none;border-radius:2px;font-family:var(--sans);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:0.3rem;">Get My Recommendation →</a>

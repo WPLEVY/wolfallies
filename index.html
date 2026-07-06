@@ -792,7 +792,11 @@
       .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.65rem; }
       .nav-logo { font-size: 1.1rem; }
     }
-  </style>
+      .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -868,12 +872,7 @@
       Wolf <span>Allies</span>
       <span class="nav-tagline">Estate &amp; Trust Property Specialists</span>
     </a>
-    <div class="nav-links" style="display:flex;align-items:center;gap:1.75rem;">
-      <a href="/prop-19-calculator" style="font-size:0.82rem;color:var(--stone);text-decoration:none;font-family:var(--sans);font-weight:400;" onmouseover="this.style.color='var(--sage)'" onmouseout="this.style.color='var(--stone)'">Prop 19 Calculator</a>
-      <a href="/about" style="font-size:0.82rem;color:var(--stone);text-decoration:none;font-family:var(--sans);font-weight:400;transition:color 0.2s;" onmouseover="this.style.color='var(--sage)'" onmouseout="this.style.color='var(--stone)'">About</a>
-      <a href="/california-trustee-guide" style="font-size:0.82rem;color:var(--stone);text-decoration:none;font-family:var(--sans);font-weight:400;transition:color 0.2s;" onmouseover="this.style.color='var(--sage)'" onmouseout="this.style.color='var(--stone)'">Trustee Guide</a>
-      <a href="/faq" style="font-size:0.82rem;color:var(--stone);text-decoration:none;font-family:var(--sans);font-weight:400;transition:color 0.2s;" onmouseover="this.style.color='var(--sage)'" onmouseout="this.style.color='var(--stone)'">FAQ</a>
-    </div>
+    <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link">FAQ</a></div>
     <a href="#intake" class="nav-cta">Get Connected</a>
   </nav>
 

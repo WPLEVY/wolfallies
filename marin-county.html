@@ -85,6 +85,12 @@
     .nav-tagline { font-family: var(--sans); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.7; padding-left: 0.75rem; border-left: 1px solid var(--border); }
     .nav-cta { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--sage); padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
     .nav-cta:hover { background: var(--ink); }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+
     .page-wrap { max-width: 1100px; margin: 0 auto; padding: 8rem 6rem 6rem; display: grid; grid-template-columns: 1fr 420px; gap: 5rem; align-items: start; }
     .breadcrumb { font-size: 0.75rem; color: var(--stone); margin-bottom: 1.5rem; }
     .breadcrumb a { color: var(--sage); text-decoration: none; }
@@ -126,7 +132,7 @@
     .footer-disclaimer { font-size: 0.68rem; color: rgba(61,61,56,0.5); max-width: 260px; text-align: right; line-height: 1.5; 
       text-wrap: balance;
     }
-    @media (max-width: 900px) { nav { padding: 1rem 1.5rem; } .nav-tagline { display: none; } .page-wrap { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 3rem; } .form-card { position: static; } footer { padding: 1.75rem 1.5rem; flex-direction: column; text-align: center; } .footer-disclaimer { text-align: center; max-width: 100%; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .nav-links { display: none !important; } nav { padding: 1rem 1.5rem; } .nav-tagline { display: none; } .page-wrap { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 3rem; } .form-card { position: static; } footer { padding: 1.75rem 1.5rem; flex-direction: column; text-align: center; } .footer-disclaimer { text-align: center; max-width: 100%; } .form-row { grid-template-columns: 1fr; } }
   </style>
 
   <script type="application/ld+json">
@@ -153,6 +159,7 @@
 <body>
 <nav>
   <a href="/" class="nav-logo">Wolf <span>Allies</span><span class="nav-tagline">Estate &amp; Trust Property Specialists</span></a>
+  <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link">FAQ</a></div>
   <a href="#form" class="nav-cta">Get Connected</a>
 </nav>
 <div class="page-wrap">
@@ -171,6 +178,7 @@
       <span style="color:var(--sage);flex-shrink:0;">✦</span>
       <div><strong>Costs you nothing, not a dollar more.</strong>Under California law, an agent cannot charge a seller more because of a broker referral. Your commission is identical whether you found your agent through us or on your own. Our involvement has zero impact on your bottom line.</div>
     </div>
+    <p style="font-size:0.85rem;color:var(--stone);font-weight:300;margin-bottom:1.5rem;">Also serving <a href="/mill-valley" style="color:var(--sage);font-weight:500;">Mill Valley</a>, <a href="/tiburon" style="color:var(--sage);font-weight:500;">Tiburon</a>, <a href="/san-rafael" style="color:var(--sage);font-weight:500;">San Rafael</a>, <a href="/sausalito" style="color:var(--sage);font-weight:500;">Sausalito</a>, <a href="/novato" style="color:var(--sage);font-weight:500;">Novato</a>, and <a href="/corte-madera" style="color:var(--sage);font-weight:500;">Corte Madera</a>.</p>
     <a href="/" class="back-link">← Back to Wolf Allies</a>
   </div>
   <div id="form">

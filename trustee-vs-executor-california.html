@@ -124,10 +124,16 @@
     .footer-text{font-size:0.7rem;color:var(--stone);text-align:center;line-height:1.6}
     .footer-disc{font-size:0.68rem;color:rgba(61,61,56,0.5);max-width:240px;text-align:right;line-height:1.55;text-wrap:balance}
     @media(max-width:700px){nav{padding:1rem 1.5rem}.wrap{padding:6rem 1.5rem 4rem}footer{padding:1.75rem 1.5rem;flex-direction:column;text-align:center}.footer-disc{text-align:center;max-width:100%}}
-  </style>
+      .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+</style>
 </head>
 <body>
-<nav><a href="/" class="nav-logo">Wolf <span>Allies</span></a><a href="/#intake" class="nav-cta">Get Connected</a></nav>
+<nav><a href="/" class="nav-logo">Wolf <span>Allies</span></a>
+  <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link">FAQ</a></div>
+  <a href="/#intake" class="nav-cta">Get Connected</a></nav>
 <div class="wrap">
   <div class="breadcrumb"><a href="/">Wolf Allies</a> › <a href="/guides">Guides</a> › Trustee vs. Executor</div>
   <div class="eyebrow">California Estate Law · Roles Explained</div>

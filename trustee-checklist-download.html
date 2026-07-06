@@ -177,12 +177,16 @@
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload)
         });
-        formState.style.display = 'none';
-        successState.style.display = 'block';
-      } catch(err) {
-        formState.style.display = 'none';
-        successState.style.display = 'block';
-      }
+      } catch(err) {}
+      try {
+        await fetch('/api/send-checklist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: fname, email, checklist: 'trustee' })
+        });
+      } catch(err) {}
+      formState.style.display = 'none';
+      successState.style.display = 'block';
     });
   </script>
 </body>

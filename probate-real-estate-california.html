@@ -98,6 +98,12 @@
     .nav-tagline { font-family: var(--sans); font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.7; padding-left: 0.75rem; border-left: 1px solid var(--border); }
     .nav-cta { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); background: var(--sage); padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
     .nav-cta:hover { background: var(--ink); }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { font-size: 0.82rem; color: var(--stone); text-decoration: none; font-family: var(--sans); font-weight: 400; transition: color 0.2s; }
+    .nav-link:hover { color: var(--sage); }
+    .nav-link.active { color: var(--sage); font-weight: 500; }
+
     .page-wrap { max-width: 1100px; margin: 0 auto; padding: 8rem 6rem 6rem; display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: start; }
     .breadcrumb { font-size: 0.75rem; color: var(--stone); margin-bottom: 1.5rem; }
     .breadcrumb a { color: var(--sage); text-decoration: none; }
@@ -170,7 +176,7 @@
     .footer-disclaimer { font-size: 0.68rem; color: rgba(61,61,56,0.5); max-width: 260px; text-align: right; line-height: 1.5; 
       text-wrap: balance;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 900px) { .nav-links { display: none !important; }
       nav { padding: 1rem 1.5rem; }
       .nav-tagline { display: none; }
       .page-wrap { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 3rem; }
@@ -205,6 +211,7 @@
 <body>
 <nav>
   <a href="/" class="nav-logo">Wolf <span>Allies</span><span class="nav-tagline">Estate &amp; Trust Property Specialists</span></a>
+  <div class="nav-links"><a href="/prop-19-calculator" class="nav-link">Prop 19 Calculator</a><a href="/california-trustee-guide" class="nav-link">Trustee Guide</a><a href="/california-executor-guide" class="nav-link">Executor Guide</a><a href="/faq" class="nav-link">FAQ</a></div>
   <a href="#connect" class="nav-cta">Get Connected</a>
 </nav>
 
@@ -365,7 +372,7 @@
 
   <aside class="sidebar">
     <div class="form-card" id="connect">
-    <h2 class="form-title">Connect with a<br>specialist</h2>
+    <h2 class="form-title">Need a<br>specialist?</h2>
     <p class="form-subtitle">Free, never affects what you pay your agent.</p>
     <p class="form-subtitle">Tell us a bit about your situation and we'll match you with the right specialist and a personalized recommendation.</p>
     <a href="/property-transition-assessment?src=probate-guide-sidebar" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Get My Recommendation →</a>

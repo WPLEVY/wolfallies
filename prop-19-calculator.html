@@ -154,23 +154,44 @@
   <div class="breadcrumb"><a href="/">Wolf Allies</a> › <a href="/california-inherited-property">Inherited Property</a> › Prop 19 Calculator</div>
   <div class="eyebrow">Interactive Tool · California Inherited Property</div>
   <h1>Proposition 19<br><em>Calculator</em></h1>
-  <p class="lead">Will Prop 19 trigger property tax reassessment on your inherited California home? This calculator gives you a quick estimate of your new property tax bill, including the monthly, 5-year, and 10-year cost of holding versus selling.</p>
+  <p class="lead">Will Prop 19 trigger property tax reassessment on your inherited California home? This calculator gives you an educational estimate of your new property tax bill under the parent-child transfer exclusion.</p>
   
-  <div class="disclaimer"><strong>Educational estimate only.</strong> This calculator provides a general estimate based on average California property tax rates. Actual property taxes depend on your specific county, applicable exemptions, and Mello-Roos or special assessments. Consult a CPA for guidance specific to your situation.</div>
+  <div class="disclaimer"><strong>Educational estimate only.</strong> This calculator provides a general estimate based on average California property tax rates and does not determine your actual eligibility for the Proposition 19 exclusion. Actual outcomes depend on your specific facts, county practices, and any applicable exemptions or special assessments. Consult a CPA or attorney for guidance specific to your situation.</div>
 
   <div class="calc-card">
     <div class="calc-title">Estimate Your Prop 19 Impact</div>
-    <p class="calc-subtitle">Three quick questions. Results in seconds.</p>
+    <p class="calc-subtitle">A few quick questions. Results in seconds.</p>
+
+    <div class="input-group">
+      <label>Was this transferred from a parent to a child?</label>
+      <div class="helper">This calculator is built for the parent-child exclusion only. Grandparent-grandchild and other transfers have additional requirements this tool does not model.</div>
+      <select id="relationship">
+        <option value="" disabled selected>Select</option>
+        <option value="parent-child">Yes, parent to child</option>
+        <option value="other">No, a different relationship</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label>Was this the parent's principal residence?</label>
+      <div class="helper">The family-home exclusion generally only applies to the transferor's principal residence, not a rental, vacation home, or other investment property.</div>
+      <select id="parent-primary-residence">
+        <option value="" disabled selected>Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+        <option value="not-sure">Not sure</option>
+      </select>
+    </div>
     
     <div class="input-group">
-      <label>Current market value of the inherited property</label>
-      <div class="helper">What would the property sell for today?</div>
+      <label>Fair market value at the date of transfer</label>
+      <div class="helper">For an inheritance resulting from a parent's death, this is generally the property's fair market value as of the date of death. If you don't know it, enter your best estimate for illustration only.</div>
       <input type="number" id="market-value" placeholder="$1,200,000" />
     </div>
     
     <div class="input-group">
-      <label>Current assessed value (parent's basis)</label>
-      <div class="helper">Found on the most recent property tax bill, typically lower than market value due to Prop 13.</div>
+      <label>Parent's current taxable/assessed value</label>
+      <div class="helper">Find this on the property's most recent tax bill. This is different from the property's income-tax basis, which is a separate concept.</div>
       <input type="number" id="assessed-value" placeholder="$450,000" />
     </div>
     
@@ -220,10 +241,11 @@
   </div>
 
   <h2>How This <em>Calculator Works</em></h2>
-  <p>This tool uses California's standard 1.1% effective property tax rate (varies by county between approximately 1.0% and 1.25%). It applies Proposition 19 rules: if you make the property your primary residence, the parent's assessed value is preserved up to the current $1,044,586 value cap on appreciation (in effect February 2025 through February 2027, adjusted biennially for CPI). If you don't make it your primary residence, the property is reassessed to current market value.</p>
+  <p>For a qualifying parent-child transfer of a family home, the applicable value threshold is generally the parent's factored base year (taxable) value plus $1,044,586, for transfers occurring from February 16, 2025 through February 15, 2027. If the property's fair market value at the time of transfer exceeds that threshold, the excess is generally added to the transferred taxable value. If you don't make the property your primary residence, it's generally reassessed to current market value.</p>
+  <p>Eligibility depends on additional requirements, including the nature of the property, the relationship between the parent and child, principal-residence requirements on both sides of the transfer, and required filings with the county assessor. For illustration, this calculator estimates property tax using a 1.1% rate; actual rates vary by location and may include voter-approved indebtedness, special assessments, Mello-Roos, and other charges.</p>
   
-  <h2>The Big <em>Picture</em></h2>
-  <p>For most heirs who don't intend to live in the inherited property, Prop 19 makes selling significantly more attractive than keeping. The combination of avoiding reassessed property taxes and capturing the stepped-up basis tax benefit usually produces tens of thousands of dollars in better outcomes, particularly over 5+ years of holding.</p>
+  <h2>What This <em>Means</em></h2>
+  <p>Proposition 19 can materially change the annual carrying cost of an inherited California home. This estimate is meant to help you understand the potential magnitude of that change. It does not determine whether keeping, renting, buying out another heir, or selling the property is the better financial decision, that depends on your income-tax basis, anticipated appreciation, rental income, financing, maintenance and insurance costs, transaction expenses, and your individual circumstances.</p>
   <p>If you're trying to decide between keeping or selling, read our <a href="/keep-vs-sell-inherited-california-home" style="color:var(--sage);">complete decision framework</a> for inherited California homes.</p>
 
   
@@ -252,9 +274,26 @@ function calculate() {
   const market = parseFloat(document.getElementById('market-value').value);
   const assessed = parseFloat(document.getElementById('assessed-value').value);
   const status = document.getElementById('primary-residence').value;
+  const relationship = document.getElementById('relationship').value;
+  const parentPrimaryResidence = document.getElementById('parent-primary-residence').value;
   
-  if (!market || !assessed || !status) {
-    alert('Please fill in all three fields.');
+  if (!market || !assessed || !status || !relationship || !parentPrimaryResidence) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (relationship !== 'parent-child' || parentPrimaryResidence !== 'yes') {
+    document.getElementById('r-old').textContent = '';
+    document.getElementById('r-new').textContent = '';
+    document.getElementById('r-increase').textContent = '';
+    document.getElementById('r-monthly').textContent = '';
+    document.getElementById('r-5year').textContent = '';
+    document.getElementById('r-10year').textContent = '';
+    let reason = relationship !== 'parent-child'
+      ? "Additional eligibility rules apply to grandparent-grandchild and other transfers that this calculator does not model."
+      : "The family-home exclusion generally requires that the property was the parent's principal residence. Based on what you entered, this transfer may not qualify for the exclusion this calculator estimates.";
+    document.getElementById('r-verdict').innerHTML = `<strong>This calculator cannot estimate your situation.</strong> ${reason} Please consult a CPA or attorney to determine your actual eligibility and likely outcome.`;
+    document.getElementById('results').style.display = 'block';
     return;
   }
   
@@ -276,11 +315,11 @@ function calculate() {
     }
   } else if (status === 'sell') {
     newTax = oldTax;
-    verdict = `Since you're planning to sell, Prop 19 reassessment doesn't affect you, the property sells before the new property tax bill matters. Combined with the stepped-up basis benefit, selling within 12 months of inheritance is typically the most tax-efficient choice.`;
+    verdict = `Since you're planning to sell, Prop 19 reassessment generally doesn't affect you directly, the property typically sells before a new property tax bill would apply to you. The eventual sale is governed by separate rules, including your income-tax basis in the property, not by Prop 19.`;
   } else {
     newAssessed = market;
     newTax = market * taxRate;
-    verdict = `Keeping the property without making it your primary residence triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}.</strong> An increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year, or about <strong>$${Math.round((newTax - oldTax) / 12).toLocaleString()}</strong> per month. Over 5 years that adds up to <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax. Over 10 years it reaches <strong>$${Math.round((newTax - oldTax) * 10).toLocaleString()}</strong>. For most heirs in this situation, selling is the better financial choice.`;
+    verdict = `Keeping the property without making it your primary residence generally triggers full Prop 19 reassessment to current market value. Your new annual property tax is approximately <strong>$${Math.round(newTax).toLocaleString()}.</strong> An increase of <strong>$${Math.round(newTax - oldTax).toLocaleString()}</strong> per year, or about <strong>$${Math.round((newTax - oldTax) / 12).toLocaleString()}</strong> per month. Over 5 years that adds up to <strong>$${Math.round((newTax - oldTax) * 5).toLocaleString()}</strong> in additional property tax. Over 10 years it reaches <strong>$${Math.round((newTax - oldTax) * 10).toLocaleString()}</strong>. Whether keeping or selling makes more sense depends on more than property tax alone, consider your full financial picture before deciding.`;
   }
   
   document.getElementById('r-old').textContent = '$' + Math.round(oldTax).toLocaleString();

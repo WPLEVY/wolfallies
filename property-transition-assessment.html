@@ -289,7 +289,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#5c6b52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <h2 class="success-title" id="success-title">You're all set.</h2>
-      <p class="success-text" id="success-text">A specialist with deep experience in estate and trust transactions will call you within a few hours.</p>
+      <p class="success-text" id="success-text">A specialist with deep experience in estate and trust transactions will typically call you within a few hours.</p>
     </div>
   </div>
 </div>
@@ -504,7 +504,7 @@
     });
     try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) {}
     document.getElementById('success-title').textContent = "You're all set.";
-    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will call you within a few hours.';
+    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will typically call you within a few hours.';
     hideAllSteps();
     successState.style.display = 'block';
   });
@@ -521,7 +521,7 @@
     const payload = Object.assign({ status: 'complete', path: 'quick_referral', name: fname + ' ' + lname, phone, self_reported_source: heardAbout }, basePayload());
     try { await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); } catch (err) {}
     document.getElementById('success-title').textContent = "You're all set.";
-    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will call you within a few hours.';
+    document.getElementById('success-text').textContent = 'A specialist with deep experience in estate and trust transactions will typically call you within a few hours.';
     hideAllSteps();
     successState.style.display = 'block';
   });

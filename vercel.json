@@ -1,1 +1,10 @@
-{"cleanUrls": true}
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/sibling-wont-sell-inherited-house-california",
+      "destination": "/sibling-disputes-inherited-property-california",
+      "permanent": true
+    }
+  ]
+}
